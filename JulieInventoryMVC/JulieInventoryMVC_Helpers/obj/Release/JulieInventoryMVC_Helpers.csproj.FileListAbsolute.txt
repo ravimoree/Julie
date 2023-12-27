@@ -1,0 +1,9 @@
+F:\Julie\JulieInventoryMVC\JulieInventoryMVC_Helpers\bin\Release\JulieInventoryMVC_Helpers.dll
+F:\Julie\JulieInventoryMVC\JulieInventoryMVC_Helpers\bin\Release\JulieInventoryMVC_Helpers.pdb
+F:\Julie\JulieInventoryMVC\JulieInventoryMVC_Helpers\bin\Release\Dapper.dll
+F:\Julie\JulieInventoryMVC\JulieInventoryMVC_Helpers\bin\Release\Dapper.xml
+F:\Julie\JulieInventoryMVC\JulieInventoryMVC_Helpers\obj\Release\JulieInventoryMVC_Helpers.csproj.AssemblyReference.cache
+F:\Julie\JulieInventoryMVC\JulieInventoryMVC_Helpers\obj\Release\JulieInventoryMVC_Helpers.csproj.CoreCompileInputs.cache
+F:\Julie\JulieInventoryMVC\JulieInventoryMVC_Helpers\obj\Release\JulieInventoryMVC_Helpers.csproj.CopyComplete
+F:\Julie\JulieInventoryMVC\JulieInventoryMVC_Helpers\obj\Release\JulieInventoryMVC_Helpers.dll
+F:\Julie\JulieInventoryMVC\JulieInventoryMVC_Helpers\obj\Release\JulieInventoryMVC_Helpers.pdb

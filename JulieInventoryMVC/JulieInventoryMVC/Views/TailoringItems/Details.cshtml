@@ -1,0 +1,359 @@
+﻿@model JulieInventoryMVC_Models.ItemMaster.ItemMasterVM
+@using JulieInventoryMVC.App_Resources;
+@{
+    ViewBag.Title = @GlobalRes.Details;
+}
+
+@section csss{
+    <link rel="stylesheet" type="text/css" href="~/Content/files/assets/icon/themify-icons/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/files/assets/icon/icofont/css/icofont.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/files/bower_components/jquery.steps/css/jquery.steps.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/files/assets/css/pages.css">
+    <style>
+        .wizard > .content {
+            background: none !important;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        table, tr td {
+            border: 1px solid red
+        }
+
+        tbody {
+            display: block;
+            height: 300px;
+            overflow: auto;
+        }
+
+        thead, tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        thead {
+            width: calc( 100% - 1em )
+        }
+
+        table {
+            width: 400px;
+        }
+
+        .table td, .table th {
+            padding: 0.5rem !important;
+        }
+    </style>
+}
+<div class="pcoded-content">
+    <div class="page-header card">
+        <div class="row align-items-end">
+            <div class="col-lg-8">
+                <div class="page-header-title">
+                    <i class="feather icon-inbox bg-c-blue"></i>
+                    <div class="d-inline">
+                        <h5>Tailoring Items Master Details</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="page-header-breadcrumb">
+                    <ul class=" breadcrumb breadcrumb-title">
+                        <li class="breadcrumb-item">
+                            <a href="/Home/Index"><i class="feather icon-home"></i></a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="#!"> @GlobalRes.Details</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="#!">Tailoring Items Master Details</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pcoded-inner-content">
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="page-body">
+                    <div class="row">
+                        @* <form class="form-material" id="myForm">*@
+                        <div class="col-sm-7" style="float:left;">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Tailoring Item Details</h5>
+                                </div>
+                                <div class="col-lg-12 col-xl-12">
+                                    <div class="mail-body">
+                                        <div class="mail-body">
+                                            <div class="mail-body-content">
+                                                <div class="form-group form-primary">
+                                                    <input type="text" name="ProductName" id="ProductName" class="form-control" value="@Model.itemMasterJson.TItemName">
+                                                    <span class="form-bar"></span>
+                                                    <label class="float-label">Product / Item Name</label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            <div class="form-group form-primary">
+                                                                <input type="number" name="CustomerRate" id="CustomerRate" class="form-control" value="@Model.itemMasterJson.TItemRate">
+                                                                <span class="form-bar"></span>
+                                                                <label class="float-label">Customer Rate</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="form-group form-primary">
+                                                                <input type="number" name="Alter" id="Alter" class="form-control" value="@Model.itemMasterJson.AlterRate">
+                                                                <span class="form-bar"></span>
+                                                                <label class="float-label">Alter</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <div class="form-group form-primary">
+                                                                <input type="number" name="UnitHrs" id="UnitHrs" class="form-control" value="@Model.itemMasterJson.OnePieceStitchingHrs">
+                                                                <span class="form-bar"></span>
+                                                                <label class="float-label">Unit / Hrs</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <div class="form-group form-primary">
+                                                                <input type="number" name="SrNo" id="SrNo" class="form-control" value="@Model.itemMasterJson.TItemCode">
+                                                                <span class="form-bar"></span>
+                                                                <label class="float-label"> Sr. No.</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <div class="form-group form-primary">
+                                                                <input type="number" name="Barcode" id="Barcode" class="form-control" value="@Model.itemMasterJson.BarCode">
+                                                                <span class="form-bar"></span>
+                                                                <label class="float-label">Barcode</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="row">
+
+                                                        <div class="col-lg-7" style="float:left">
+                                                            <div class="card-block">
+                                                                <div class="dt-responsive table-responsive">
+                                                                    <button id="addBtn" type="button" class="btn waves-effect waves-dark btn-primary btn-outline-primary" style="margin-bottom:5px">
+                                                                        <i class="icofont icofont-plus-circle"></i>
+                                                                        Add
+                                                                    </button>
+                                                                    <table id="tblMeasurement" class="table table-striped table-bordered">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th style="width:40px">Sr.</th>
+                                                                                <th style="width:100%">Measurement Parameters</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody style="width:96%">
+                                                                            @foreach (var item in Model.Parameters)
+                                                                            {
+                                                                                <tr class="rowClass">
+                                                                                    <td class="row-index text-center" style="width:40px">
+                                                                                        @item.PrintOrder
+                                                                                    </td>
+                                                                                    <td class="row-index text-center Field" style="width:100%">
+                                                                                        <input type="text" name="Measurement" id="Measurement" class="form-control" value="@item.ParaName">
+                                                                                    </td>
+                                                                                </tr>
+                                                                            }
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-5" style="float:right">
+                                                            <div class="row">
+                                                                <div class="col-md-5">
+                                                                    <div class="form-group form-primary">
+                                                                        <input type="number" name="CustomerRate" id="CustomerRate" class="form-control" value="@Model.">
+                                                                        <span class="form-bar"></span>
+                                                                        <label class="float-label">Customer Rate</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <div class="form-group form-primary">
+                                                                        <input type="number" name="GST" id="GST" class="form-control" value="@Model.itemMasterJson.TaxPer">
+                                                                        <span class="form-bar"></span>
+                                                                        <label class="float-label">GST %</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <div class="form-group form-primary">
+                                                                        <input type="number" name="ItemGroup" id="ItemGroup" class="form-control" value="@Model.itemMasterJson.ItemGroupName">
+                                                                        <span class="form-bar"></span>
+                                                                        <label class="float-label">Item Group</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <div class="checkbox-fade fade-in-primary" style="margin-top:10%">
+                                                                        <label>
+                                                                            @if (Model.itemMasterJson.IsActive == true)
+                                                                            {
+                                                                                <input type="checkbox" id="IsActive" name="IsActive" value="1" class="input-danger" checked="checked">
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                <input type="checkbox" id="IsActive" name="IsActive" value="1" class="input-danger">
+                                                                            }
+                                                                            <span class="cr">
+                                                                                <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
+                                                                            </span>
+                                                                            <span>Is Active</span>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <br>
+                                                                <br>
+                                                                <div class="col-md-12 card-header " style="text-align: center; background-color: #b9b9b9;">
+                                                                    <h5>Worker Rates</h5>
+                                                                </div>
+                                                                <br>
+                                                                <div class="col-md-5">
+                                                                    <div class="form-group form-primary">
+                                                                        <input type="number" name="CuttingPcs" id="CuttingPcs" class="form-control" value="@Model.itemMasterJson.CuttingRate">
+                                                                        <span class="form-bar"></span>
+                                                                        <label class="float-label">Cutting / Pcs</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <div class="form-group form-primary">
+                                                                        <input type="number" name="SewingPcs" id="SewingPcs" class="form-control" value="@Model.itemMasterJson.SewingRate">
+                                                                        <span class="form-bar"></span>
+                                                                        <label class="float-label">Sewing / Pcs</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <div class="form-group form-primary">
+                                                                        <input type="number" name="SewingR" id="SewingR" class="form-control" value="@Model.itemMasterJson.SewingRate_R">
+                                                                        <span class="form-bar"></span>
+                                                                        <label class="float-label">Sewing (R)</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <div class="form-group form-primary">
+                                                                        <input type="number" name="Material" id="Material" class="form-control" value="@Model.itemMasterJson.MaterialRate">
+                                                                        <span class="form-bar"></span>
+                                                                        <label class="float-label">Material</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <div class="form-group form-primary">
+                                                                        <input type="number" name="SewingJW" id="SewingJW" class="form-control" value="@Model.itemMasterJson.SewingRate_Jw">
+                                                                        <span class="form-bar"></span>
+                                                                        <label class="float-label">Sewing JW</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <div class="form-group form-primary">
+                                                                        <input type="number" name="AlterCharg" class="form-control" value="@Model.itemMasterJson.AlterCharge">
+                                                                        <span class="form-bar"></span>
+                                                                        <label class="float-label">Alter Charge.</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <div class="form-group form-primary">
+                                                                        <input type="number" name="SewingJWR" id="SewingJWR" class="form-control" value="@Model.itemMasterJson.SewingRate_Jw_R">
+                                                                        <span class="form-bar"></span>
+                                                                        <label class="float-label">Sewing JW (R)</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <div class="form-group form-primary">
+                                                                        <input type="number" name="AlterR" id="AlterR" class="form-control" value="@Model.itemMasterJson.AlterCharge_R">
+                                                                        <span class="form-bar"></span>
+                                                                        <label class="float-label">Alter (R)</label>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-5" style="float:right;">
+                            <div class="card">
+                                <div class="card-block">
+                                    <div class="dt-responsive table-responsive">
+                                        <button id="addNoteBtns" type="button" class="btn waves-effect waves-dark btn-primary btn-outline-primary" style="margin-bottom:5px">
+                                            <i class="icofont icofont-plus-circle"></i>
+                                            Add
+                                        </button>
+                                        <table id="tblNotes" class="table table-striped table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width:40px">Sr.</th>
+                                                    <th style="width:100%">Notes / Styles</th>
+                                                    <th style="width:60%">Charge</th>
+                                                    <th style="width:70%">Charge(W)</th>
+                                                    <th style="width:75%">Charge(JW)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tNotes" style="width:100%">
+                                                @foreach (var item in Model.NotesStyles)
+                                                {
+                                                    <tr class="rowClass ">
+                                                        <td class="row-index text-center Field" style="width:40px">
+                                                            @item.PrintOrder
+                                                        </td>
+                                                        <td class="row-index text-center Field" style="width:100%">
+                                                            <input type="text" name="Notes" id="Notes" class="form-control" value="@item.ParaName">
+                                                        </td>
+                                                        <td class="row-index text-center Field" style="width:60%">
+                                                            <input type="number" name="Charge" id="Charge" class="form-control" value="@item.Charge">
+                                                        </td>
+                                                        <td class="row-index text-center Field" style="width:70%">
+                                                            <input type="number" name="ChargeW" id="ChargeW" class="form-control" value="@item.ChargeW">
+                                                        </td>
+                                                        <td class="row-index text-center Field" style="width:75%">
+                                                            <input type="number" name="ChargeJW" id="ChargeJW" class="form-control" value="@item.ChargeJW">
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="card-block" style="float:right">
+                                        <a href="/TailoringItems/Index" class="btn waves-effect waves-light btn-info btn-outline-info">
+                                            <i class="icofont icofont-eye-alt"></i>Back to List
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @* </form>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+
+    <script src="~/Content/files/bower_components/modernizr/js/modernizr.js" type="text/javascript"></script>
+    <script src="~/Content/files/bower_components/modernizr/js/css-scrollbars.js" type="text/javascript"></script>
+    <script src="~/Content/filescdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <script src="~/Content/files/assets/js/pcoded.min.js"></script>
+    <script src="~/Content/files/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/files/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/Content/files/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+}
