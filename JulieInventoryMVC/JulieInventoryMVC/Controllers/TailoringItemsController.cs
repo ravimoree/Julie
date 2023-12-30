@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Web;
+using System.Web.Hosting;
 using System.Web.Mvc;
 using JulieInventoryMVC.Models;
 using JulieInventoryMVC_Models.ItemMaster;
@@ -13,7 +16,7 @@ namespace JulieInventoryMVC.Controllers
     public class TailoringItemsController : Controller
     {
         ITItemMasterServices _dc = new TItemMasterServices();
-        // GET: TailoringStitchingItems
+
         public ActionResult Index(int page = 1, int pageSize = 20)
         {
             if (Session["UserId"] != null)
@@ -49,7 +52,6 @@ namespace JulieInventoryMVC.Controllers
             }
         }
 
-
         public ActionResult Create()
         {
             if (Session["UserId"] != null)
@@ -62,8 +64,13 @@ namespace JulieInventoryMVC.Controllers
             }
         }
         [HttpPost]
-        public ActionResult Create(ItemMasterVM data)
+        public ActionResult Creates(ItemMasterVM data, HttpPostedFileBase imageFile)
         {
+            var fileName = Path.GetFileName(imageFile.FileName);
+            var path = Path.Combine(Server.MapPath("/Image/ItemMaster/"), fileName);
+            imageFile.SaveAs(path);
+
+            data.itemMasterJson.ImgPath= path;  
             data.itemMasterJson.Sys_Time = DateTime.Now;
             data.itemMasterJson.CurrUsr = Request["UserName"];
             var insert = _dc.AddItemMaster(data.itemMasterJson);
@@ -79,13 +86,27 @@ namespace JulieInventoryMVC.Controllers
         }
         public ActionResult Details(int id)
         {
-            var result = _dc.GetItemMaster(id);
-            return View(result);
+            if (Session["UserId"] != null)
+            {
+                var result = _dc.GetItemMaster(id);
+                return View(result);
+            }
+            else
+            {
+                return RedirectToAction("LogIn", "Account");
+            }
         }
         public ActionResult Edit(int id)
         {
-            var result = _dc.GetItemMaster(id);
-            return View(result);
+            if (Session["UserId"] != null)
+            {
+                var result = _dc.GetItemMaster(id);
+                return View(result);
+            }
+            else
+            {
+                return RedirectToAction("LogIn", "Account");
+            }
         }
         [HttpPost]
         public ActionResult Edit(ItemMasterVM data)

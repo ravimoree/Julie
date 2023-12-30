@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http.Internal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace JulieInventoryMVC_Models.ItemMaster
 {
@@ -115,6 +117,7 @@ namespace JulieInventoryMVC_Models.ItemMaster
         public double SalesDiscPer { get; set; } = 0.0;
         public string ItemGroupName { get; set; } = string.Empty;
         public int? ProductionLimit { get; set; }
+        public FormFile Attach { get; set; }
 
 
         //public TItemMaster()

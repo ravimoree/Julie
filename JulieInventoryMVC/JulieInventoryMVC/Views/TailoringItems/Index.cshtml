@@ -20,32 +20,37 @@
         padding: 0;
     }
 
-        .pagination li {
-            margin: 0 5px;
-        }
+    .pagination li {
+         margin: 0 5px;
+    }
 
-        .pagination a {
-            display: block;
-            padding: 8px 12px;
-            text-decoration: none;
-            color: #333;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
+    .pagination a {
+        display: block;
+        padding: 8px 12px;
+        text-decoration: none;
+        color: #333;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
 
-            .pagination a:hover {
-                background-color: #ddd;
-            }
+    .pagination a:hover {
+        background-color: #ddd;
+    }
 
-        .pagination .PagedList-selPage {
-            font-weight: bold;
-            background-color: #337ab7;
-            color: #fff;
-        }
+    .pagination .PagedList-selPage {
+        font-weight: bold;
+        background-color: #337ab7;
+        color: #fff;
+    }
+
     page-item.active .page-link {
         background-color: #4099ff;
         border-color: #4099ff;
+    }
+
+    .pagination-container {
+        float: right !important;
     }
 </style>
 <div class="pcoded-content">
@@ -102,24 +107,24 @@
 
                                         <table id="tblItemMaster" class="table table-striped table-bordered nowrap">
                                             <thead>
-                                            <tr style="text-align:center;">
-                                                <th>Sr.</th>
-                                                <th>Item Name</th>
-                                                <th>Rate</th>
-                                                <th>C.Rate</th>
-                                                <th>S.Rate</th>
-                                                <th>ItemType</th>
-                                                <th>GST%</th>
-                                                <th>Alter</th>
-                                                <th>Sewing (R)</th>
-                                                <th>Sewing JW</th>
-                                                <th>Sewing JW (R)</th>
-                                                <th>Alter Chrg.</th>
-                                                <th>Alter (R)</th>
-                                                <th>Unit / Hrs</th>
-                                                <th>Group Name</th>
-                                                <th>Action </th>
-                                            </tr>
+                                                <tr style="text-align:center;">
+                                                    <th>Sr.</th>
+                                                    <th>Item Name</th>
+                                                    <th>Rate</th>
+                                                    <th>C.Rate</th>
+                                                    <th>S.Rate</th>
+                                                    <th>ItemType</th>
+                                                    <th>GST%</th>
+                                                    <th>Alter</th>
+                                                    <th>Sewing (R)</th>
+                                                    <th>Sewing JW</th>
+                                                    <th>Sewing JW (R)</th>
+                                                    <th>Alter Chrg.</th>
+                                                    <th>Alter (R)</th>
+                                                    <th>Unit / Hrs</th>
+                                                    <th>Group Name</th>
+                                                    <th>Action </th>
+                                                </tr>
                                             </thead>
                                             <tbody>
 
@@ -190,7 +195,7 @@
                                                 of @Model.PageCount
 
                                             </div>
-                                            <div class="col-xs-12 col-sm-12  col-md-7">
+                                            <div class="col-xs-12 col-sm-12  col-md-7" >
                                                 @Html.PagedListPager(Model, page => Url.Action("Index", new { page, pageSize = ViewBag.psize }))
                                             </div>
                                         </div>
@@ -221,7 +226,7 @@
                 alert("abc");
                 $("#form1").submit();
             });
-        });  
+        });
 
     </script>
 }
