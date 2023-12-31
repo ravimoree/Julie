@@ -195,22 +195,38 @@
                                                                 <div class="col-md-5">
                                                                     <div class="form-group form-primary">
                                                                         <input type="number" name="CustomerRate" id="CustomerRate" class="form-control" required>
-                                                                        <span class="form-bar"></span>
                                                                         <label class="float-label">Customer Rate</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-5">
                                                                     <div class="form-group form-primary">
                                                                         <input type="number" name="GST" id="GST" class="form-control" required>
-                                                                        <span class="form-bar"></span>
                                                                         <label class="float-label">GST %</label>
                                                                     </div>
                                                                 </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group form-primary">
+                                                                        <select name="ItemGroup" id="ItemGroup" class="form-control">
+                                                                            <option value="0">Select Item Group</option>
+                                                                            @foreach (var item in ViewBag.GetItemGroupMaster)
+                                                                            {
+                                                                                <option value="@item.ItemGroupId">@item.ItemGroupName</option>
+                                                                            }
+                                                                        </select>
+                                                                        <label class="float-label">Item Group</label>
+                                                                    </div>
+                                                                </div>
+
                                                                 <div class="col-md-5">
                                                                     <div class="form-group form-primary">
-                                                                        <input type="number" name="ItemGroup" id="ItemGroup" class="form-control" required>
-                                                                        <span class="form-bar"></span>
-                                                                        <label class="float-label">Item Group</label>
+                                                                        <select name="UOM" id="UOM" class="form-control">
+                                                                            <option value="0">Select UOM</option>
+                                                                            @foreach (var item in ViewBag.GetMiscMaster)
+                                                                            {
+                                                                                <option value="@item.MiscId">@item.MiscName</option>
+                                                                            }
+                                                                        </select>
+                                                                        <label class="float-label">UOM</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-5">
@@ -238,10 +254,10 @@
                                                                 </div>
                                                                 <br>
                                                                 <br>
-                                                                <div class="col-md-12 card-header " style="text-align: center; background-color: #b9b9b9;">
+                                                                <div class="col-md-12 card-header " style="text-align: center; background-color: #b9b9b9; margin-bottom: 15px;">
                                                                     <h5>Worker Rates</h5>
                                                                 </div>
-                                                                <br>
+                                                                
                                                                 <div class="col-md-5">
                                                                     <div class="form-group form-primary">
                                                                         <input type="number" name="CuttingPcs" id="CuttingPcs" class="form-control" required>
@@ -363,32 +379,33 @@
     <script src="~/Content/files/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
     <script src="~/Content/files/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script>
-        $(document).ready(() => {
+
+        ; (function ($) {
             let counts = 1;
             var imgs = "";
             $('#addNoteBtns').click(function () {
                 let dynamicRowHTML = `     <tr class="rowClass ">
-                                                                                <td class="row-index text-center Field" style="width:40px">
-                                                                                     ${counts}
-                                                                                </td>
-                                                                                <td class="row-index text-center Field" style="width:100%">
-                                                                                     <input type="text" name="Notes${counts}"id="Notes${counts}" class="form-control" >
-                                                                                </td>
-                                                                                <td class="row-index text-center Field" style="width:60%">
-                                                                                     <input type="number" name="Charge${counts}"id="Charge${counts}" class="form-control" >
-                                                                                </td>
-                                                                                <td class="row-index text-center Field" style="width:70%">
-                                                                                     <input type="number" name="ChargeW${counts}"id="ChargeW${counts}" class="form-control" >
-                                                                                </td>
-                                                                                <td class="row-index text-center Field" style="width:75%">
-                                                                                     <input type="number" name="ChargeJW${counts}"id="ChargeJW${counts}" class="form-control" >
-                                                                                </td>
-                                                                                <td class="text-center"style="width:40%">
-                                                                                    <button class="btn btn-danger remove" type="button">
-                                                                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                                                                    </button>
-                                                                                </td>
-                                                                           </tr>`;
+                                                                                    <td class="row-index text-center Field" style="width:40px">
+                                                                                         ${counts}
+                                                                                    </td>
+                                                                                    <td class="row-index text-center Field" style="width:100%">
+                                                                                         <input type="text" name="Notes${counts}"id="Notes${counts}" class="form-control" >
+                                                                                    </td>
+                                                                                    <td class="row-index text-center Field" style="width:60%">
+                                                                                         <input type="number" name="Charge${counts}"id="Charge${counts}" class="form-control" >
+                                                                                    </td>
+                                                                                    <td class="row-index text-center Field" style="width:70%">
+                                                                                         <input type="number" name="ChargeW${counts}"id="ChargeW${counts}" class="form-control" >
+                                                                                    </td>
+                                                                                    <td class="row-index text-center Field" style="width:75%">
+                                                                                         <input type="number" name="ChargeJW${counts}"id="ChargeJW${counts}" class="form-control" >
+                                                                                    </td>
+                                                                                    <td class="text-center"style="width:40%">
+                                                                                        <button class="btn btn-danger remove" type="button">
+                                                                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                                                                        </button>
+                                                                                    </td>
+                                                                               </tr>`;
                 $('#tNotes').append(dynamicRowHTML);
                 counts++;
             });
@@ -400,18 +417,18 @@
             let count = 1;
             $('#addBtn').click(function () {
                 let dynamicRowHTML = `  <tr class="rowClass"">
-                                                                                                     <td class="row-index text-center" style="width:40px">
-                                                                                                          ${count}
-                                                                                                     </td>
-                                                                                                     <td class="row-index text-center Field" style="width:100%">
-                                                                                                          <input type="text" name="Measurement" id="Measurement" class="form-control" >
-                                                                                                     </td>
-                                                                                                     <td class="text-center"style="width:32%">
-                                                                                                         <button class="btn btn-danger remove"
-                                                                                                             type="button"><i class="fa fa-trash" aria-hidden="true"></i>
-                                                                                                         </button>
-                                                                                                     </td>
-                                                                                                 </tr>`;
+                                                                                                         <td class="row-index text-center" style="width:40px">
+                                                                                                              ${count}
+                                                                                                         </td>
+                                                                                                         <td class="row-index text-center Field" style="width:100%">
+                                                                                                              <input type="text" name="Measurement" id="Measurement" class="form-control" >
+                                                                                                         </td>
+                                                                                                         <td class="text-center"style="width:32%">
+                                                                                                             <button class="btn btn-danger remove"
+                                                                                                                 type="button"><i class="fa fa-trash" aria-hidden="true"></i>
+                                                                                                             </button>
+                                                                                                         </td>
+                                                                                                     </tr>`;
                 $('#tMeasurement').append(dynamicRowHTML);
                 count++;
             });
@@ -449,7 +466,6 @@
                 var srno = $('#SrNo').val();
                 var barcode = $('#Barcode').val();
                 var gst = $('#GST').val();
-                var itemgroup = $('#ItemGroup').val();
                 var isactive = $('#IsActive').val();
                 var cuttingpcs = $('#CuttingPcs').val();
                 var sewingpcs = $('#SewingPcs').val();
@@ -458,7 +474,8 @@
                 var material = $('#Material').val();
                 var sewingjw = $('#SewingJW').val();
                 var alterr = $('#AlterR').val();
-                var fileInput = imgs;
+                var itemgroupid = $('#ItemGroup').val();
+                var uom = $('#UOM').text();
 
                 var dataItemMaster = {
                     TItemName: productname,
@@ -468,8 +485,7 @@
                     TItemCode: srno,
                     Barcode: barcode,
                     TaxPer: gst,
-                    ItemGroupName: itemgroup,
-                    IsActive: isactive,
+                    IsActive: isactive==1?"true":"false",
                     CuttingRate: cuttingpcs,
                     SewingRate: sewingpcs,
                     SewingRate_R: sewingr,
@@ -477,7 +493,9 @@
                     SewingRate_Jw_R: sewingjwr,
                     Material: material,
                     AlterR: alterr,
-                    AlterCharge_R: alterr
+                    AlterCharge_R: alterr,
+                    ItemGroupId: itemgroupid,
+                    UOM: uom
                 }
                 var data =
                 {
@@ -487,18 +505,25 @@
                 }
                 var formData = new FormData();
 
-
-                formData.append('data', data);
-                formData.append('imageFile', fileInput);
+                var ItemMasterData = JSON.stringify(dataItemMaster);
+                var Parameters = JSON.stringify(measurement);
+                var NotesStyles = JSON.stringify(notes);
                 debugger
+                formData.append('ItemMasterData', ItemMasterData);
+                formData.append('ParametersData', Parameters);
+                formData.append('NotesStylesData', NotesStyles);
+                //formData.append("imgFile", imgs.files);
+                for (var i = 0; i < imgs.length; i++) {
+                    formData.append(files[i].name, imgs[i]);
+                }
                 $.ajax({
-                    url: '/TailoringItems/Creates',
-                    type: 'POST',
-                    data: JSON.stringify(data),
-                    contentType: 'application/json; charset=utf-8',
-                    dataType: "json",
-                });
-
+                    url: "/TailoringItems/Creates",
+                    type: "POST",
+                    contentType: false,
+                    processData: false, 
+                    data: formData,
+                    },
+                );
             })
 
             $(document).on('change', '.btn-file :file', function () {
@@ -530,7 +555,9 @@
             $("#imgInp").change(function () {
                 readURL(this);
             });
-        });
+
+        })(jQuery);
+
     </script>
 
 }

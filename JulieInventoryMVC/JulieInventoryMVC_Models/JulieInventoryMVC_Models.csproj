@@ -92,6 +92,8 @@
     <Compile Include="ItemMaster\ItemMasterVM.cs" />
     <Compile Include="ItemMaster\ItemNotesStyles.cs" />
     <Compile Include="ItemMaster\ItemParameter.cs" />
+    <Compile Include="ItemMaster\ItemGroupMaster.cs" />
+    <Compile Include="ItemMaster\MiscMaster.cs" />
     <Compile Include="ItemMaster\TItemMaster.cs" />
     <Compile Include="ItemMaster\TItemMasterVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -17,6 +17,8 @@ namespace JulieInventoryMVC_Services.TItemMaster
         int UpdateItemNotesStyles(List<ItemNotesStyles> modal);
         int DeleteItemMaster(int id);
         ItemMasterVM GetItemMaster(int id);
+        List<MiscMaster> GetMiscMaster(int id);
+        List<ItemGroupMaster> GetItemGroupMaster();
 
 
     }

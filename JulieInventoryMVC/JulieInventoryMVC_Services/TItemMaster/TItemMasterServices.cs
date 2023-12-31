@@ -39,18 +39,16 @@ namespace JulieInventoryMVC_Services.TItemMaster
             if (modal.UOM != null)
             {
                 param.Add("@UOM", modal.UOM);
-                param.Add("@AUOM", modal.AUOM);
+                param.Add("@AUOM", modal.UOM);
             }
             else
             {
-                param.Add("@UOM", modal.UOM);
-                param.Add("@AUOM", modal.AUOM);
+                param.Add("@UOM", "");
+                param.Add("@AUOM", "");
             }
 
-
-
             param.Add("@UOMValue", modal.UOMValue);
-            param.Add("@AUOMValue", modal.AUOMValue);
+            param.Add("@AUOMValue", modal.UOMValue);
             param.Add("@PurchaseRate", modal.PurchaseRate);
             param.Add("@MRP", modal.MRP);
             param.Add("@SalesRate", modal.SalesRate);
@@ -109,7 +107,7 @@ namespace JulieInventoryMVC_Services.TItemMaster
             param.Add("@SupplierName", string.Empty);
             param.Add("@PurchaseDiscPer", string.Empty);
             param.Add("@SalesDiscPer", string.Empty);
-            int data = SqlHelper.ExcutethoutReturn("SP_InsertTItemMaster_Sales_140922", param);
+            int data = SqlHelper.ExcuteReturn("SP_InsertTItemMaster_Sales_140922", param);
             return data;
         }
         public int UpdateItemMaster(JulieInventoryMVC_Models.ItemMaster.TItemMaster modal)
@@ -290,11 +288,27 @@ namespace JulieInventoryMVC_Services.TItemMaster
             var datas= SqlHelper.ReturnList<JulieInventoryMVC_Models.ItemMaster.TItemMaster>("Sp_GetIteamMasterById", param1).FirstOrDefault<JulieInventoryMVC_Models.ItemMaster.TItemMaster>(); ;
             var ParametersList = SqlHelper.GetRecords<ItemParameter>("Sp_GetIteamMasterParameter", param).OrderBy(x => x.PrintOrder).ToList();
             var NotesStylesList = SqlHelper.GetRecords<ItemNotesStyles>("Sp_GetItemNotesStyles", param).OrderBy(x => x.PrintOrder).ToList();
-            itemMasterVM.itemMasterJson =  datas;
+            itemMasterVM.ItemMaster =  datas;
             itemMasterVM.Parameters = ParametersList;
             itemMasterVM.NotesStyles = NotesStylesList;
 
             return itemMasterVM;
+        }
+        public List<MiscMaster> GetMiscMaster(int id)
+        {
+            List<MiscMaster> miscMasters = new List<MiscMaster>();  
+            List<ParameterInfo> param = new List<ParameterInfo>();
+            param.Add(new ParameterInfo() { ParameterName = "@TItemId", ParameterValue = id });
+            DynamicParameters param1 = new DynamicParameters();
+            param1.Add("@CId", id);
+            miscMasters = SqlHelper.ReturnList<MiscMaster>("Sp_GetTbl_MiscMasterList", param1).ToList() ;
+            return miscMasters;
+        }
+        public List<ItemGroupMaster> GetItemGroupMaster()
+        {
+            List<ItemGroupMaster> miscMasters = new List<ItemGroupMaster>();  
+            miscMasters = SqlHelper.ReturnList<ItemGroupMaster>("Sp_GetItemGroupMaster", null).ToList() ;
+            return miscMasters;
         }
 
     }

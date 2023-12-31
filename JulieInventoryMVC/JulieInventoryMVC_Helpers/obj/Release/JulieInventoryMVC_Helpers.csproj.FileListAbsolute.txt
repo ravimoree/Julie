@@ -7,3 +7,12 @@ F:\Julie\JulieInventoryMVC\JulieInventoryMVC_Helpers\obj\Release\JulieInventoryM
 F:\Julie\JulieInventoryMVC\JulieInventoryMVC_Helpers\obj\Release\JulieInventoryMVC_Helpers.csproj.CopyComplete
 F:\Julie\JulieInventoryMVC\JulieInventoryMVC_Helpers\obj\Release\JulieInventoryMVC_Helpers.dll
 F:\Julie\JulieInventoryMVC\JulieInventoryMVC_Helpers\obj\Release\JulieInventoryMVC_Helpers.pdb
+F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Helpers\bin\Release\JulieInventoryMVC_Helpers.dll
+F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Helpers\bin\Release\JulieInventoryMVC_Helpers.pdb
+F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Helpers\bin\Release\Dapper.dll
+F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Helpers\bin\Release\Dapper.xml
+F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Helpers\obj\Release\JulieInventoryMVC_Helpers.csproj.AssemblyReference.cache
+F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Helpers\obj\Release\JulieInventoryMVC_Helpers.csproj.CoreCompileInputs.cache
+F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Helpers\obj\Release\JulieInventoryMVC_Helpers.csproj.CopyComplete
+F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Helpers\obj\Release\JulieInventoryMVC_Helpers.dll
+F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Helpers\obj\Release\JulieInventoryMVC_Helpers.pdb

@@ -40,6 +40,9 @@ namespace JulieInventoryMVC.Controllers
                     Response.Cookies.Add(myCookie);
                     myCookie.Values.Add("UseId", data.UserId.ToString());
                     myCookie.Values.Add("UserName", data.UserName);
+                    myCookie.Values.Add("CId", data.CId.ToString());
+                    Session["UserName"]= data.UserName;
+                    Session["CId"]= data.CId.ToString();
                     Session["UserId"] = data.UserId;
                     return RedirectToAction("Index", "Home");
                 }

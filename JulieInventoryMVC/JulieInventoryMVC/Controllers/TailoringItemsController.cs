@@ -9,6 +9,8 @@ using System.Web.Mvc;
 using JulieInventoryMVC.Models;
 using JulieInventoryMVC_Models.ItemMaster;
 using JulieInventoryMVC_Services.TItemMaster;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using PagedList;
 
 namespace JulieInventoryMVC.Controllers
@@ -17,34 +19,18 @@ namespace JulieInventoryMVC.Controllers
     {
         ITItemMasterServices _dc = new TItemMasterServices();
 
-        public ActionResult Index(int page = 1, int pageSize = 20)
+        public ActionResult Index(int? page)
         {
             if (Session["UserId"] != null)
             {
-                int totalCount;
+                int pageSize = 10;
+                int pageNumber = (page ?? 1);
+
                 var dataList = _dc.GetTItemMaster();
 
-                var ItemMaster = dataList.ToPagedList(page, pageSize);
+                var ItemMaster = dataList.ToPagedList(pageNumber, pageSize);
 
-
-                int pageIndex = 1;
-                pageIndex = page != 0 ? Convert.ToInt32(page) : 1;
-                int defaSize = pageSize == 0 ? 20 : pageSize;
-                ViewBag.psize = defaSize;
-                ViewBag.PageSize = new List<SelectListItem>()
-                    {
-                        new SelectListItem() { Value="5", Text= "5" },
-                        new SelectListItem() { Value="10", Text= "10" },
-                        new SelectListItem() { Value="15", Text= "15" },
-                        new SelectListItem() { Value="25", Text= "25" },
-                        new SelectListItem() { Value="50", Text= "50" },
-                     };
-
-                IPagedList<TItemMaster> involst = null;
-
-                involst = ItemMaster.ToPagedList(pageIndex, defaSize);
-
-                return View(involst);
+                return View(ItemMaster);
             }
             else
             {
@@ -56,6 +42,10 @@ namespace JulieInventoryMVC.Controllers
         {
             if (Session["UserId"] != null)
             {
+                var cid = Session["CId"].ToString();
+                ViewBag.GetMiscMaster = _dc.GetMiscMaster(Convert.ToInt32(cid));
+                ViewBag.GetItemGroupMaster = _dc.GetItemGroupMaster();
+
                 return View();
             }
             else
@@ -64,18 +54,90 @@ namespace JulieInventoryMVC.Controllers
             }
         }
         [HttpPost]
-        public ActionResult Creates(ItemMasterVM data, HttpPostedFileBase imageFile)
+        public ActionResult Creates(string ItemMasterData,string ParametersData, string NotesStylesData)
         {
-            var fileName = Path.GetFileName(imageFile.FileName);
-            var path = Path.Combine(Server.MapPath("/Image/ItemMaster/"), fileName);
-            imageFile.SaveAs(path);
+            var itemMaster = new ItemMasterVM()
+            {
+                ItemMaster = new TItemMaster(),
+                Parameters=new List<ItemParameter>(),
+                NotesStyles = new List<ItemNotesStyles>()
+            };
+            HttpFileCollectionBase file1 = Request.Files;
 
-            data.itemMasterJson.ImgPath= path;  
-            data.itemMasterJson.Sys_Time = DateTime.Now;
-            data.itemMasterJson.CurrUsr = Request["UserName"];
-            var insert = _dc.AddItemMaster(data.itemMasterJson);
-            var para = _dc.AddItemParameter(data.Parameters, insert);
-            var notes = _dc.AddItemNotesStyles(data.NotesStyles, insert);
+            itemMaster.ItemMaster = JsonConvert.DeserializeObject<TItemMaster>(ItemMasterData);
+            itemMaster.Parameters= JsonConvert.DeserializeObject<List<ItemParameter>>(ParametersData);
+            itemMaster.NotesStyles = JsonConvert.DeserializeObject<List<ItemNotesStyles>>(NotesStylesData);
+
+
+            if (!string.IsNullOrEmpty(ItemMasterData))
+            {
+            }
+            if (Request.Files.Count > 0)
+            {
+                HttpFileCollectionBase files = Request.Files;
+                for (int i = 0; i < files.Count; i++)
+                {
+                    string path = AppDomain.CurrentDomain.BaseDirectory + "Uploads/";
+                    string filename = Path.GetFileName(Request.Files[i].FileName);
+
+                    HttpPostedFileBase file = files[i];
+                    string fname;
+                    if (Request.Browser.Browser.ToUpper() == "IE" || Request.Browser.Browser.ToUpper() == "INTERNETEXPLORER")
+                    {
+                        string[] testfiles = file.FileName.Split(new char[] { '\\' });
+                        fname = testfiles[testfiles.Length - 1];
+                    }
+                    else
+                    {
+                        fname = file.FileName;
+                    }
+
+                    fname = Path.Combine(Server.MapPath("~/Image/ItemMaster/"), fname);
+                    //Please uncommet below line before comite or test
+                    //   file.SaveAs(fname);
+                }
+            }
+
+
+            //data.itemMasterJson.ImgPath= path;  
+            itemMaster.ItemMaster.Sys_Time = DateTime.Now;
+            itemMaster.ItemMaster.CurrUsr = Request["UserName"];
+            var insert = _dc.AddItemMaster(itemMaster.ItemMaster);
+            var para = _dc.AddItemParameter(itemMaster.Parameters, insert);
+            var notes = _dc.AddItemNotesStyles(itemMaster.NotesStyles, insert);
+
+            return RedirectToAction("Index", "TailoringItems");
+
+        }
+
+        public ActionResult UploadFiles()
+        {
+            if (Request.Files.Count > 0)
+            {
+                HttpFileCollectionBase files = Request.Files;
+                var id = Request["ItemMaster"];
+
+                for (int i = 0; i < files.Count; i++)
+                {
+                    string path = AppDomain.CurrentDomain.BaseDirectory + "Uploads/";
+                    string filename = Path.GetFileName(Request.Files[i].FileName);
+
+                    HttpPostedFileBase file = files[i];
+                    string fname;
+                    if (Request.Browser.Browser.ToUpper() == "IE" || Request.Browser.Browser.ToUpper() == "INTERNETEXPLORER")
+                    {
+                        string[] testfiles = file.FileName.Split(new char[] { '\\' });
+                        fname = testfiles[testfiles.Length - 1];
+                    }
+                    else
+                    {
+                        fname = file.FileName;
+                    }
+
+                    fname = Path.Combine(Server.MapPath("~/Image/ItemMaster/"), fname);
+                    file.SaveAs(fname);
+                }
+            }
             return RedirectToAction("Index", "TailoringItems");
         }
 
@@ -111,16 +173,18 @@ namespace JulieInventoryMVC.Controllers
         [HttpPost]
         public ActionResult Edit(ItemMasterVM data)
         {
-            data.itemMasterJson.Sys_Time = DateTime.Now;
-            data.itemMasterJson.CurrUsr = Request["UserName"];
-            var insert = _dc.AddItemMaster(data.itemMasterJson);
+            data.ItemMaster.Sys_Time = DateTime.Now;
+            data.ItemMaster.CurrUsr = Request["UserName"];
+            var insert = _dc.AddItemMaster(data.ItemMaster);
             int par = data.Parameters.Where(x => x.ParaId == 0).Count();
             int not = data.NotesStyles.Where(x => x.ParaId == 0).Count();
-            if (par != 0) {
-              _dc.AddItemParameter(data.Parameters.Where(x=>x.ParaId==0).ToList(), insert);
+            if (par != 0)
+            {
+                _dc.AddItemParameter(data.Parameters.Where(x => x.ParaId == 0).ToList(), insert);
             }
-            if (not != 0) {
-              _dc.AddItemNotesStyles(data.NotesStyles.Where(x=>x.ParaId==0).ToList(), insert);
+            if (not != 0)
+            {
+                _dc.AddItemNotesStyles(data.NotesStyles.Where(x => x.ParaId == 0).ToList(), insert);
             }
             var para = _dc.UpdateItemParameter(data.Parameters.Where(x => x.ParaId != 0).ToList());
             var notes = _dc.UpdateItemNotesStyles(data.NotesStyles.Where(x => x.ParaId != 0).ToList());

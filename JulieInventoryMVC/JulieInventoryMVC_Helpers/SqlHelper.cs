@@ -126,6 +126,17 @@ namespace JulieInventoryMVC_Helpers
             }
             return success;
         }
+        public static int ExcuteReturn(string procedureName, DynamicParameters param = null)
+        {
+            int success = 0;
+            using (SqlConnection sqlcon = new SqlConnection(ConnectionString()))
+            {
+                sqlcon.Open();
+                success = sqlcon.ExecuteScalar<int>(procedureName, param, commandType: CommandType.StoredProcedure);
+                sqlcon.Close();
+            }
+            return success;
+        }
 
         public static T ExcuteScalar<T>(string procedureName, DynamicParameters param = null)
         {
