@@ -508,20 +508,22 @@
                 var ItemMasterData = JSON.stringify(dataItemMaster);
                 var Parameters = JSON.stringify(measurement);
                 var NotesStyles = JSON.stringify(notes);
-                debugger
+                
                 formData.append('ItemMasterData', ItemMasterData);
                 formData.append('ParametersData', Parameters);
                 formData.append('NotesStylesData', NotesStyles);
-                //formData.append("imgFile", imgs.files);
-                for (var i = 0; i < imgs.length; i++) {
-                    formData.append(files[i].name, imgs[i]);
-                }
+                formData.append("imgFile", imgs);
+                //for (var i = 0; i < imgs; i++) {
+                //    formData.append(files[i].name, imgs[i]);
+                //}
+                debugger
                 $.ajax({
                     url: "/TailoringItems/Creates",
                     type: "POST",
-                    contentType: false,
-                    processData: false, 
                     data: formData,
+                    processData: false,
+                    contentType: false,
+                    dataType: "json",
                     },
                 );
             })

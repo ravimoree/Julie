@@ -4,13 +4,9 @@ F:\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\obj\Release\JulieInventoryMV
 F:\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\obj\Release\JulieInventoryMVC_Models.csproj.CoreCompileInputs.cache
 F:\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\obj\Release\JulieInventoryMVC_Models.dll
 F:\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\obj\Release\JulieInventoryMVC_Models.pdb
+F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\JulieInventoryMVC_Models.dll.config
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\JulieInventoryMVC_Models.dll
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\JulieInventoryMVC_Models.pdb
-F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\obj\Release\JulieInventoryMVC_Models.csproj.AssemblyReference.cache
-F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\obj\Release\JulieInventoryMVC_Models.csproj.CoreCompileInputs.cache
-F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\obj\Release\JulieInventoryMVC_Models.dll
-F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\obj\Release\JulieInventoryMVC_Models.pdb
-F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\JulieInventoryMVC_Models.dll.config
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\Microsoft.AspNetCore.Http.Abstractions.dll
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\Microsoft.AspNetCore.Http.dll
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\Microsoft.AspNetCore.Http.Features.dll
@@ -40,4 +36,8 @@ F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\System.Memor
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\System.Numerics.Vectors.xml
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\System.Text.Encodings.Web.xml
+F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\obj\Release\JulieInventoryMVC_Models.csproj.AssemblyReference.cache
+F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\obj\Release\JulieInventoryMVC_Models.csproj.CoreCompileInputs.cache
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\obj\Release\JulieInventoryMVC_Models.csproj.CopyComplete
+F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\obj\Release\JulieInventoryMVC_Models.dll
+F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\obj\Release\JulieInventoryMVC_Models.pdb

@@ -1,15 +1,13 @@
 ﻿using JulieInventoryMVC.App_Start;
 using JulieInventoryMVC.Models;
+using JulieInventoryMVC_Models.Users;
 using JulieInventoryMVC_Services.Users;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
-using JulieInventoryMVC_Models.Users;
 
 namespace JulieInventoryMVC.Controllers
 {
@@ -31,7 +29,7 @@ namespace JulieInventoryMVC.Controllers
         {
             var data = _users.GetUser(models.Email);
             //var DecryptPass = Decrypt(data.Password);
-            if (data!=null)
+            if (data != null)
             {
                 if (data.UserPwd == models.Password)
                 {
@@ -41,8 +39,8 @@ namespace JulieInventoryMVC.Controllers
                     myCookie.Values.Add("UseId", data.UserId.ToString());
                     myCookie.Values.Add("UserName", data.UserName);
                     myCookie.Values.Add("CId", data.CId.ToString());
-                    Session["UserName"]= data.UserName;
-                    Session["CId"]= data.CId.ToString();
+                    Session["UserName"] = data.UserName;
+                    Session["CId"] = data.CId.ToString();
                     Session["UserId"] = data.UserId;
                     return RedirectToAction("Index", "Home");
                 }
@@ -73,7 +71,7 @@ namespace JulieInventoryMVC.Controllers
             HttpCookie myCookie = new HttpCookie("LoginCookie");
             myCookie.Expires = DateTime.Now.AddDays(-1d);
 
-            Session.Clear(); 
+            Session.Clear();
             Session.Abandon();
             return RedirectToAction("Login", "Account");
         }

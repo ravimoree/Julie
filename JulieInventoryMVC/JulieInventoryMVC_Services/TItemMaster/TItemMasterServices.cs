@@ -1,16 +1,8 @@
 ﻿using Dapper;
 using JulieInventoryMVC_Helpers;
 using JulieInventoryMVC_Models.ItemMaster;
-using JulieInventoryMVC_Models.Users;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JulieInventoryMVC_Services.TItemMaster
 {
@@ -280,15 +272,15 @@ namespace JulieInventoryMVC_Services.TItemMaster
         }
         public ItemMasterVM GetItemMaster(int id)
         {
-            ItemMasterVM itemMasterVM =new ItemMasterVM();
+            ItemMasterVM itemMasterVM = new ItemMasterVM();
             List<ParameterInfo> param = new List<ParameterInfo>();
             param.Add(new ParameterInfo() { ParameterName = "@TItemId", ParameterValue = id });
             DynamicParameters param1 = new DynamicParameters();
             param1.Add("@TItemId", id);
-            var datas= SqlHelper.ReturnList<JulieInventoryMVC_Models.ItemMaster.TItemMaster>("Sp_GetIteamMasterById", param1).FirstOrDefault<JulieInventoryMVC_Models.ItemMaster.TItemMaster>(); ;
+            var datas = SqlHelper.ReturnList<JulieInventoryMVC_Models.ItemMaster.TItemMaster>("Sp_GetIteamMasterById", param1).FirstOrDefault<JulieInventoryMVC_Models.ItemMaster.TItemMaster>(); ;
             var ParametersList = SqlHelper.GetRecords<ItemParameter>("Sp_GetIteamMasterParameter", param).OrderBy(x => x.PrintOrder).ToList();
             var NotesStylesList = SqlHelper.GetRecords<ItemNotesStyles>("Sp_GetItemNotesStyles", param).OrderBy(x => x.PrintOrder).ToList();
-            itemMasterVM.ItemMaster =  datas;
+            itemMasterVM.ItemMaster = datas;
             itemMasterVM.Parameters = ParametersList;
             itemMasterVM.NotesStyles = NotesStylesList;
 
@@ -296,18 +288,18 @@ namespace JulieInventoryMVC_Services.TItemMaster
         }
         public List<MiscMaster> GetMiscMaster(int id)
         {
-            List<MiscMaster> miscMasters = new List<MiscMaster>();  
+            List<MiscMaster> miscMasters = new List<MiscMaster>();
             List<ParameterInfo> param = new List<ParameterInfo>();
             param.Add(new ParameterInfo() { ParameterName = "@TItemId", ParameterValue = id });
             DynamicParameters param1 = new DynamicParameters();
             param1.Add("@CId", id);
-            miscMasters = SqlHelper.ReturnList<MiscMaster>("Sp_GetTbl_MiscMasterList", param1).ToList() ;
+            miscMasters = SqlHelper.ReturnList<MiscMaster>("Sp_GetTbl_MiscMasterList", param1).ToList();
             return miscMasters;
         }
         public List<ItemGroupMaster> GetItemGroupMaster()
         {
-            List<ItemGroupMaster> miscMasters = new List<ItemGroupMaster>();  
-            miscMasters = SqlHelper.ReturnList<ItemGroupMaster>("Sp_GetItemGroupMaster", null).ToList() ;
+            List<ItemGroupMaster> miscMasters = new List<ItemGroupMaster>();
+            miscMasters = SqlHelper.ReturnList<ItemGroupMaster>("Sp_GetItemGroupMaster", null).ToList();
             return miscMasters;
         }
 

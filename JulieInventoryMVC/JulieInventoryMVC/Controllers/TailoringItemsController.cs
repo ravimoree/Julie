@@ -1,17 +1,13 @@
-﻿using System;
+﻿using JulieInventoryMVC_Models.ItemMaster;
+using JulieInventoryMVC_Services.TItemMaster;
+using Newtonsoft.Json;
+using PagedList;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Web;
-using System.Web.Hosting;
 using System.Web.Mvc;
-using JulieInventoryMVC.Models;
-using JulieInventoryMVC_Models.ItemMaster;
-using JulieInventoryMVC_Services.TItemMaster;
-using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
-using PagedList;
 
 namespace JulieInventoryMVC.Controllers
 {
@@ -54,18 +50,16 @@ namespace JulieInventoryMVC.Controllers
             }
         }
         [HttpPost]
-        public ActionResult Creates(string ItemMasterData,string ParametersData, string NotesStylesData)
+        public ActionResult Creates(string ItemMasterData, string ParametersData, string NotesStylesData)
         {
             var itemMaster = new ItemMasterVM()
             {
                 ItemMaster = new TItemMaster(),
-                Parameters=new List<ItemParameter>(),
+                Parameters = new List<ItemParameter>(),
                 NotesStyles = new List<ItemNotesStyles>()
             };
-            HttpFileCollectionBase file1 = Request.Files;
-
             itemMaster.ItemMaster = JsonConvert.DeserializeObject<TItemMaster>(ItemMasterData);
-            itemMaster.Parameters= JsonConvert.DeserializeObject<List<ItemParameter>>(ParametersData);
+            itemMaster.Parameters = JsonConvert.DeserializeObject<List<ItemParameter>>(ParametersData);
             itemMaster.NotesStyles = JsonConvert.DeserializeObject<List<ItemNotesStyles>>(NotesStylesData);
 
 
@@ -77,29 +71,16 @@ namespace JulieInventoryMVC.Controllers
                 HttpFileCollectionBase files = Request.Files;
                 for (int i = 0; i < files.Count; i++)
                 {
-                    string path = AppDomain.CurrentDomain.BaseDirectory + "Uploads/";
-                    string filename = Path.GetFileName(Request.Files[i].FileName);
+                    string fileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(files[i].FileName);
 
                     HttpPostedFileBase file = files[i];
-                    string fname;
-                    if (Request.Browser.Browser.ToUpper() == "IE" || Request.Browser.Browser.ToUpper() == "INTERNETEXPLORER")
-                    {
-                        string[] testfiles = file.FileName.Split(new char[] { '\\' });
-                        fname = testfiles[testfiles.Length - 1];
-                    }
-                    else
-                    {
-                        fname = file.FileName;
-                    }
+                    string path = Path.Combine(Server.MapPath("~/Image/ItemMaster/"), fileName);
 
-                    fname = Path.Combine(Server.MapPath("~/Image/ItemMaster/"), fname);
-                    //Please uncommet below line before comite or test
-                    //   file.SaveAs(fname);
+                    itemMaster.ItemMaster.ImgPath = "/Image/ItemMaster/" + fileName;
+                    file.SaveAs(path);
                 }
             }
 
-
-            //data.itemMasterJson.ImgPath= path;  
             itemMaster.ItemMaster.Sys_Time = DateTime.Now;
             itemMaster.ItemMaster.CurrUsr = Request["UserName"];
             var insert = _dc.AddItemMaster(itemMaster.ItemMaster);
@@ -108,37 +89,6 @@ namespace JulieInventoryMVC.Controllers
 
             return RedirectToAction("Index", "TailoringItems");
 
-        }
-
-        public ActionResult UploadFiles()
-        {
-            if (Request.Files.Count > 0)
-            {
-                HttpFileCollectionBase files = Request.Files;
-                var id = Request["ItemMaster"];
-
-                for (int i = 0; i < files.Count; i++)
-                {
-                    string path = AppDomain.CurrentDomain.BaseDirectory + "Uploads/";
-                    string filename = Path.GetFileName(Request.Files[i].FileName);
-
-                    HttpPostedFileBase file = files[i];
-                    string fname;
-                    if (Request.Browser.Browser.ToUpper() == "IE" || Request.Browser.Browser.ToUpper() == "INTERNETEXPLORER")
-                    {
-                        string[] testfiles = file.FileName.Split(new char[] { '\\' });
-                        fname = testfiles[testfiles.Length - 1];
-                    }
-                    else
-                    {
-                        fname = file.FileName;
-                    }
-
-                    fname = Path.Combine(Server.MapPath("~/Image/ItemMaster/"), fname);
-                    file.SaveAs(fname);
-                }
-            }
-            return RedirectToAction("Index", "TailoringItems");
         }
 
         public ActionResult Delete(int id)
