@@ -62,7 +62,6 @@ namespace JulieInventoryMVC.Controllers
             itemMaster.Parameters = JsonConvert.DeserializeObject<List<ItemParameter>>(ParametersData);
             itemMaster.NotesStyles = JsonConvert.DeserializeObject<List<ItemNotesStyles>>(NotesStylesData);
 
-
             if (!string.IsNullOrEmpty(ItemMasterData))
             {
             }
