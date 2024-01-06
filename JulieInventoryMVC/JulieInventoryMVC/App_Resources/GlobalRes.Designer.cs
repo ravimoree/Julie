@@ -106,6 +106,15 @@ namespace JulieInventoryMVC.App_Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Entry.
+        /// </summary>
+        public static string Entry {
+            get {
+                return ResourceManager.GetString("Entry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fabrics / Readymades.
         /// </summary>
         public static string Fabrics___Readymades {
@@ -147,6 +156,24 @@ namespace JulieInventoryMVC.App_Resources {
         public static string Navigation {
             get {
                 return ResourceManager.GetString("Navigation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order / Invoice.
+        /// </summary>
+        public static string Order___Invoice {
+            get {
+                return ResourceManager.GetString("Order / Invoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order / Invoice Create.
+        /// </summary>
+        public static string Order___Invoice_Create {
+            get {
+                return ResourceManager.GetString("Order / Invoice Create", resourceCulture);
             }
         }
         

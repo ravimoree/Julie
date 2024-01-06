@@ -7,8 +7,6 @@ F:\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\obj\Release\JulieInventoryMV
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\JulieInventoryMVC_Models.dll.config
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\JulieInventoryMVC_Models.dll
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\JulieInventoryMVC_Models.pdb
-F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\Microsoft.AspNetCore.Http.Abstractions.dll
-F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\Microsoft.AspNetCore.Http.dll
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\Microsoft.AspNetCore.Http.Features.dll
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\Microsoft.AspNetCore.WebUtilities.dll
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\Microsoft.Extensions.DependencyInjection.Abstractions.dll
@@ -22,8 +20,6 @@ F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\System.Memor
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\System.Numerics.Vectors.dll
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\System.Text.Encodings.Web.dll
-F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\Microsoft.AspNetCore.Http.xml
-F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\Microsoft.AspNetCore.Http.Abstractions.xml
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\Microsoft.AspNetCore.Http.Features.xml
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\Microsoft.AspNetCore.WebUtilities.xml
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC_Models\bin\Release\Microsoft.Extensions.DependencyInjection.Abstractions.xml

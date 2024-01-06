@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Login";
     Layout = null;
+   
 }
 
 <!DOCTYPE html>
@@ -82,6 +83,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <form action="/Account/Login" class="md-float-material form-material" method="post">
+                        <input type="hidden" name=""value="@ViewBag.ReturnUrl">
                         <div class="text-center">
                             <img src="~/Content/files/assets/images/logo.png" alt="logo.png">
                         </div>
@@ -96,12 +98,12 @@
                                 <div class="form-group form-primary">
                                     <input type="text" name="Email" class="form-control" id="Email" required>
                                     <span class="form-bar"></span>
-                                    <label class="float-label">Username</label>
+                                    <label>User Name</label>
                                 </div>
                                 <div class="form-group form-primary">
                                     <input type="password" name="Password" id="Password" class="form-control" required>
                                     <span class="form-bar"></span>
-                                    <label class="float-label">Password</label>
+                                    <label>Password</label>
                                 </div>
                                 <div class="row m-t-25 text-left">
                                     <div class="col-12">
@@ -112,9 +114,9 @@
                                                 <span class="text-inverse">Remember me</span>
                                             </label>
                                         </div>
-                                        <div class="forgot-phone text-right float-right">
+                                        @*<div class="forgot-phone text-right float-right">
                                             <a href="#" class="text-right f-w-600"> Forgot Password?</a>
-                                        </div>
+                                        </div>*@
                                     </div>
                                 </div>
                                 <div class="row m-t-30">

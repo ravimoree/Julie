@@ -132,6 +132,9 @@
   <data name="Edit" xml:space="preserve">
     <value>सम्पादन करना</value>
   </data>
+  <data name="Entry" xml:space="preserve">
+    <value>प्रवेश</value>
+  </data>
   <data name="Fabrics / Readymades" xml:space="preserve">
     <value>कपड़ा / रेडीमेड</value>
   </data>
@@ -146,6 +149,12 @@
   </data>
   <data name="Navigation" xml:space="preserve">
     <value>मार्गदर्शन</value>
+  </data>
+  <data name="Order / Invoice" xml:space="preserve">
+    <value>ऑर्डर / चालान</value>
+  </data>
+  <data name="Order / Invoice Create" xml:space="preserve">
+    <value>ऑर्डर / चालान बनाएं</value>
   </data>
   <data name="Process / Work Type" xml:space="preserve">
     <value>प्रक्रिया / कार्य प्रकार</value>

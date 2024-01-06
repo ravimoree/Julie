@@ -15,29 +15,11 @@ namespace JulieInventoryMVC_Models.ItemMaster
         public List<ItemNotesStyles> NotesStyles { get; set; }
         
     }
-    public class ItemMasterParameterVM
+    public class JsonItemMaster
     {
-        public List<ItemParameter> Parameters { get; set; }
-        public List<ItemNotesStyles> NotesStyles { get; set; }
-    }
-    public class ParametersJson 
-    {
-        public string ParaId { get; set; }
-        public string ParaName { get; set; }
-        public string TItemId { get; set; }
-        public string PrintRequired { get; set; } = "true";
-        public string PrintOrder { get; set; }
-    }
-    public class NotesStylesJson
-    {
-        public string ParaId { get; set; }
-        public string ParaName { get; set; }
-        public string TItemId { get; set; }
-        public string PrintRequired { get; set; } = "true";
-        public string PrintOrder { get; set; }
-        public string Charge { get; set; }
-        public string ChargeW { get; set; }
-        public string ChargeJW { get; set; }
+        public string ItemMasterData { get; set; }
+        public string ParametersData { get; set; }
+        public string NotesStylesData { get; set; }
     }
 
 }

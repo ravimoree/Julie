@@ -152,6 +152,7 @@
     <Compile Include="App_Start\SessionExpire.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderInvoiceController.cs" />
     <Compile Include="Controllers\TailoringItemsController.cs" />
     <Compile Include="Controllers\UserMasterController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1263,6 +1264,8 @@
     <Content Include="Views\TailoringItems\Create.cshtml" />
     <Content Include="Views\TailoringItems\Details.cshtml" />
     <Content Include="Views\TailoringItems\Edit.cshtml" />
+    <Content Include="Views\OrderInvoice\Index.cshtml" />
+    <Content Include="Views\OrderInvoice\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

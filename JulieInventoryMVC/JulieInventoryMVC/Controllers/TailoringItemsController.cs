@@ -1,4 +1,5 @@
-﻿using JulieInventoryMVC_Models.ItemMaster;
+﻿using JulieInventoryMVC.App_Start;
+using JulieInventoryMVC_Models.ItemMaster;
 using JulieInventoryMVC_Services.TItemMaster;
 using Newtonsoft.Json;
 using PagedList;
@@ -11,6 +12,7 @@ using System.Web.Mvc;
 
 namespace JulieInventoryMVC.Controllers
 {
+    [SessionExpire(true)]
     public class TailoringItemsController : Controller
     {
         ITItemMasterServices _dc = new TItemMasterServices();

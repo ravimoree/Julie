@@ -17,11 +17,11 @@ namespace JulieInventoryMVC.Controllers
         IUserServices _users = new UserServices();
 
         // GET: Account
-        public ActionResult Login()
+        public ActionResult Login(string returnUrl="")
         {
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             Response.Cache.SetNoStore();
-
+            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
         [HttpPost]

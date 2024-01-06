@@ -132,6 +132,9 @@
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="Entry" xml:space="preserve">
+    <value>Entry</value>
+  </data>
   <data name="Fabrics / Readymades" xml:space="preserve">
     <value>Fabrics / Readymades</value>
   </data>
@@ -146,6 +149,12 @@
   </data>
   <data name="Navigation" xml:space="preserve">
     <value>Navigation</value>
+  </data>
+  <data name="Order / Invoice" xml:space="preserve">
+    <value>Order / Invoice</value>
+  </data>
+  <data name="Order / Invoice Create" xml:space="preserve">
+    <value>Order / Invoice Create</value>
   </data>
   <data name="Process / Work Type" xml:space="preserve">
     <value>Process / Work Type</value>
