@@ -6,6 +6,16 @@
 <link rel="stylesheet" type="text/css" href="~/Content/files/bower_components/bootstrap-daterangepicker/css/daterangepicker.css" />
 <link rel="stylesheet" type="text/css" href="~/Content/files/assets/icon/icofont/css/icofont.css">
 <style>
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
     .form-control {
         border-left: none !important;
         border-top: none !important;
@@ -428,10 +438,206 @@
                                                             </div>
                                                         </div>
                                                         <div class="tab-pane" id="profile7" role="tabpanel">
-                                                            <p class="m-0">2.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.</p>
+                                                            <div class="card-block">
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Item Code</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" class="form-control" placeholder="Enter item code">
+                                                                    </div>
+                                                                    <div class="col-sm-2">
+                                                                        <label style="color:green"> Stock</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Item Name</label>
+                                                                    <div class="col-sm-10">
+                                                                        <input type="text" class="form-control" placeholder="Enter item Name">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Item Details</label>
+                                                                    <div class="col-sm-10">
+                                                                        <textarea class="form-control"></textarea>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Qty</label>
+                                                                    <div class="col-sm-10">
+                                                                        <input type="number" class="form-control" placeholder="Enter qty">
+                                                                    </div>
+                                                                    <div class="col-sm-2">
+                                                                        <select name="select" class="form-control">
+                                                                            <option value="opt1">Select One Value Only</option>
+                                                                            <option value="opt2">Type 2</option>
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Qty</label>
+                                                                    <div class="col-sm-6">
+                                                                        <input type="number" class="form-control" placeholder="Enter qty">
+                                                                    </div>
+                                                                    <div class="col-sm-2">
+                                                                        <select name="select" class="form-control">
+                                                                            <option value="opt1">Select One Value Only</option>
+                                                                            <option value="opt2">Type 2</option>
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Rate</label>
+                                                                    <div class="col-sm-6">
+                                                                        <input type="number" class="form-control" placeholder="Enter rate">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Discount</label>
+                                                                    <div class="col-sm-3">
+                                                                        <input type="number" class="form-control" placeholder="Enter discount">
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <input type="number" class="form-control" placeholder="Enter discount">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Item Total</label>
+                                                                    <div class="col-sm-6">
+                                                                        <input type="number" class="form-control" placeholder="Enter item total">
+                                                                    </div>
+                                                                    <div class="col-sm-2">
+                                                                        <label class="col-sm-12 col-form-label" style="color:blue">TaxPer</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label"></label>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="checkbox-fade fade-in-primary" style="margin-top:10%">
+                                                                            <label>
+                                                                                <input type="checkbox" id="IsActive" name="IsActive" value="1" class="input-danger">
+                                                                                <span class="cr">
+                                                                                    <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
+                                                                                </span>
+                                                                                <span>Required on Invoice</span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-block" style="float:right">
+                                                                    <button class="btn waves-effect waves-light btn-success btn-outline-success" id="additem">
+                                                                        <i class="icofont icofont-plus-circle"></i>Add Item
+                                                                    </button>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                         <div class="tab-pane" id="messages7" role="tabpanel">
-                                                            <p class="m-0">3. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mas Cum sociis natoque penatibus et magnis dis.....</p>
+                                                            <div class="card-block">
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Item Code</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" class="form-control" placeholder="Enter item code">
+                                                                    </div>
+                                                                    <div class="col-sm-2">
+                                                                        <label style="color:green"> Stock</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Item Name</label>
+                                                                    <div class="col-sm-10">
+                                                                        <input type="text" class="form-control" placeholder="Enter item Name">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Item Details</label>
+                                                                    <div class="col-sm-10">
+                                                                        <textarea class="form-control"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Tailoring</label>
+                                                                    <div class="col-sm-6">
+                                                                        <select name="select" class="form-control">
+                                                                            <option value="opt1">Select One Value Only</option>
+                                                                            <option value="opt2">Type 2</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <label class="col-sm-1">PCS</label>
+                                                                    <div class="col-sm-2">
+                                                                        <input type="text" class="form-control" placeholder="Enter pcs">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Qty</label>
+                                                                    <div class="col-sm-7">
+                                                                        <input type="number" class="form-control" placeholder="Enter qty">
+                                                                    </div>
+                                                                    <div class="col-sm-2">
+                                                                        <select name="select" class="form-control">
+                                                                            <option value="opt1">Select One Value Only</option>
+                                                                            <option value="opt2">Type 2</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Qty</label>
+                                                                    <div class="col-sm-6">
+                                                                        <input type="number" class="form-control" placeholder="Enter qty">
+                                                                    </div>
+                                                                    <div class="col-sm-2">
+                                                                        <select name="select" class="form-control">
+                                                                            <option value="opt1">Select One Value Only</option>
+                                                                            <option value="opt2">Type 2</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Rate</label>
+                                                                    <div class="col-sm-6">
+                                                                        <input type="number" class="form-control" placeholder="Enter rate">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Discount</label>
+                                                                    <div class="col-sm-3">
+                                                                        <input type="number" class="form-control" placeholder="Enter discount">
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <input type="number" class="form-control" placeholder="Enter discount">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Item Total</label>
+                                                                    <div class="col-sm-6">
+                                                                        <input type="number" class="form-control" placeholder="Enter item total">
+                                                                    </div>
+                                                                    <div class="col-sm-2">
+                                                                        <label class="col-sm-12 col-form-label" style="color:blue">TaxPer</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label"></label>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="checkbox-fade fade-in-primary" style="margin-top:10%">
+                                                                            <label>
+                                                                                <input type="checkbox" id="IsActive" name="IsActive" value="1" class="input-danger">
+                                                                                <span class="cr">
+                                                                                    <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
+                                                                                </span>
+                                                                                <span>Required on Invoice</span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-block" style="float:right">
+                                                                    <button class="btn waves-effect waves-light btn-success btn-outline-success" id="additem">
+                                                                        <i class="icofont icofont-plus-circle"></i>Add Item
+                                                                    </button>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
