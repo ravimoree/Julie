@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Login";
     Layout = null;
-   
+
 }
 
 <!DOCTYPE html>
@@ -24,7 +24,18 @@
     <link rel="stylesheet" type="text/css" href="~/Content/files/assets/icon/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="~/Content/files/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="~/Content/files/assets/css/pages.css">
+    <style>
 
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+    </style>
 </head>
 <body themebg-pattern="theme1">
     <div class="theme-loader">
@@ -83,7 +94,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <form action="/Account/Login" class="md-float-material form-material" method="post">
-                        <input type="hidden" name=""value="@ViewBag.ReturnUrl">
+                        <input type="hidden" name="" value="@ViewBag.ReturnUrl">
                         <div class="text-center">
                             <img src="~/Content/files/assets/images/logo.png" alt="logo.png">
                         </div>
@@ -105,6 +116,11 @@
                                     <span class="form-bar"></span>
                                     <label>Password</label>
                                 </div>
+                                <div class="form-group form-primary">
+                                    <input type="number"" name="Otp" id="Otp" class="form-control" placeholder="Enter the otp">
+                                    <span class="form-bar"></span>
+                                    <label>Otp</label>
+                                </div>
                                 <div class="row m-t-25 text-left">
                                     <div class="col-12">
                                         <div class="checkbox-fade fade-in-primary">
@@ -115,13 +131,13 @@
                                             </label>
                                         </div>
                                         @*<div class="forgot-phone text-right float-right">
-                                            <a href="#" class="text-right f-w-600"> Forgot Password?</a>
-                                        </div>*@
+                                                <a href="#" class="text-right f-w-600"> Forgot Password?</a>
+                                            </div>*@
                                     </div>
                                 </div>
                                 <div class="row m-t-30">
                                     <div class="col-md-12">
-                                        <button type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">LOGIN</button>
+                                        <button type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20" name="loginBtn" id="loginBtn">LOGIN</button>
                                     </div>
                                 </div>
                             </div>
@@ -147,13 +163,29 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
 
     <script type="text/javascript">
-     $(document).ready(function () {
-         if ('@TempData["message"]' == "Password Not") {
-             toastr.error('User password not match.');
-        }
-         else if ('@TempData["message"]' == "User Not") {
-             toastr.error('User not match please try again.');
-         }
+        $(document).ready(function () {
+            //const button = document.getElementById("loginBtn");
+            //button.disabled = true;
+
+            //var otp = $("#Otp").val();
+            //if (otp == null && otp == "")
+            //{
+            //    button.disabled = true;
+            //    $("#Otp").attr("required", "true");
+            //    $("#loginBtn").attr()
+            //}
+
+            if ('@TempData["message"]' == "Password Not") {
+                toastr.error('User password not match.');
+            }
+            else if ('@TempData["message"]' == "User Not") {
+                toastr.error('User not match please try again.');
+            }
+            $("#Otp").on("click",function () {
+                var name = $("#Email").val();
+            });
+
+
      });
     </script>
 </body>

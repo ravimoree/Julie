@@ -132,6 +132,9 @@
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="Employee Create" xml:space="preserve">
+    <value>Employee Create</value>
+  </data>
   <data name="Entry" xml:space="preserve">
     <value>Entry</value>
   </data>
@@ -179,5 +182,8 @@
   </data>
   <data name="Work / Employee" xml:space="preserve">
     <value>Work / Employee</value>
+  </data>
+  <data name="Worker / Employe Master" xml:space="preserve">
+    <value>Worker / Employe Master</value>
   </data>
 </root>

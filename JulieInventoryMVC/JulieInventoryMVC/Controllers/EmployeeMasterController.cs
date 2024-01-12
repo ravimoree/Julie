@@ -8,19 +8,23 @@ using System.Web.Mvc;
 namespace JulieInventoryMVC.Controllers
 {
     [SessionExpire(true)]
-    public class OrderInvoiceController : Controller
+    public class EmployeeMasterController : Controller
     {
-        // GET: OrderInvoice
+        // GET: EmployeeMaster
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult Create() { return View(); }
-        public ActionResult Detail()
+
+        public ActionResult Create()
         {
             return View();
         }
         public ActionResult Edit()
+        {
+            return View();
+        }
+        public ActionResult Details()
         {
             return View();
         }

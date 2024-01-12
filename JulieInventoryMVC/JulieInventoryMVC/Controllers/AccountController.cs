@@ -4,6 +4,7 @@ using JulieInventoryMVC_Models.Users;
 using JulieInventoryMVC_Services.Users;
 using System;
 using System.IO;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
@@ -66,6 +67,16 @@ namespace JulieInventoryMVC.Controllers
             return View();
         }
 
+
+        public ActionResult GetOtp(string name)
+        {
+            var data = _users.GetUser(name);
+            string generatedOTP = GenerateOTP();
+            // Store the OTP and phone number in the session for verification
+            Session["PhoneNumber"] = data.MobileNo;
+            Session["OTP"] = generatedOTP;
+            return Json(data);
+        }
         public ActionResult Logout()
         {
             HttpCookie myCookie = new HttpCookie("LoginCookie");
@@ -122,7 +133,11 @@ namespace JulieInventoryMVC.Controllers
 
             return cipherText;
         }
-
+        private string GenerateOTP()
+        {
+            Random random = new Random();
+            return random.Next(100000, 999999).ToString();
+        }
         #endregion    
     }
 }

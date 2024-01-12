@@ -106,6 +106,15 @@ namespace JulieInventoryMVC.App_Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Employee Create.
+        /// </summary>
+        public static string Employee_Create {
+            get {
+                return ResourceManager.GetString("Employee Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Entry.
         /// </summary>
         public static string Entry {
@@ -246,6 +255,15 @@ namespace JulieInventoryMVC.App_Resources {
         public static string Work___Employee {
             get {
                 return ResourceManager.GetString("Work / Employee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Worker / Employe Master.
+        /// </summary>
+        public static string Worker___Employe_Master {
+            get {
+                return ResourceManager.GetString("Worker / Employe Master", resourceCulture);
             }
         }
     }

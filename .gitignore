@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/JulieInventoryMVC/packages
+/JulieInventoryMVC/JulieInventoryMVC_Services/obj/Release
+/JulieInventoryMVC/JulieInventoryMVC_Models/.vs
+/JulieInventoryMVC/JulieInventoryMVC_Models/bin/Release
+/JulieInventoryMVC/JulieInventoryMVC_Models/obj/Release

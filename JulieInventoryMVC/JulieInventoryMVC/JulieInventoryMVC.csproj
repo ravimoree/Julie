@@ -151,6 +151,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SessionExpire.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EmployeeMasterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderInvoiceController.cs" />
     <Compile Include="Controllers\TailoringItemsController.cs" />
@@ -1266,6 +1267,12 @@
     <Content Include="Views\TailoringItems\Edit.cshtml" />
     <Content Include="Views\OrderInvoice\Index.cshtml" />
     <Content Include="Views\OrderInvoice\Create.cshtml" />
+    <Content Include="Views\OrderInvoice\Detail.cshtml" />
+    <Content Include="Views\OrderInvoice\Edit.cshtml" />
+    <Content Include="Views\EmployeeMaster\Index.cshtml" />
+    <Content Include="Views\EmployeeMaster\Create.cshtml" />
+    <Content Include="Views\EmployeeMaster\Edit.cshtml" />
+    <Content Include="Views\EmployeeMaster\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
