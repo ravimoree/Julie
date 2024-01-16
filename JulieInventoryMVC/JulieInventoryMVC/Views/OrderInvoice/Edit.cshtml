@@ -1,0 +1,701 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/files/assets/pages/advance-elements/css/bootstrap-datetimepicker.css">
+<link rel="stylesheet" type="text/css" href="~/Content/files/bower_components/bootstrap-daterangepicker/css/daterangepicker.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/files/assets/icon/icofont/css/icofont.css">
+<style>
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+
+    .form-control {
+        border-left: none !important;
+        border-top: none !important;
+        border-right: none !important;
+    }
+
+    .btn-file {
+        position: relative;
+        overflow: hidden;
+    }
+
+        .btn-file input[type=file] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            font-size: 100px;
+            text-align: right;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            outline: none;
+            background: white;
+            cursor: inherit;
+            display: block;
+        }
+
+    #img-upload {
+        width: 100%;
+    }
+</style>
+<div class="pcoded-content">
+    <div class="page-header card">
+        <div class="row align-items-end">
+            <div class="col-lg-8">
+                <div class="page-header-title">
+                    <i class="feather icon-inbox bg-c-blue"></i>
+                    <div class="d-inline">
+                        <h5>Order / Invoice Edit</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="page-header-breadcrumb">
+                    <ul class=" breadcrumb breadcrumb-title">
+                        <li class="breadcrumb-item">
+                            <a href="/Home/Index"><i class="feather icon-home"></i></a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/OrderInvoice/Index">Entry</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="#!">Order / Invoice Edit</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pcoded-inner-content">
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="page-body">
+                    <div class="row">
+                        <div class="col-sm-12" style="float:left;">
+                            <div class="card">
+                                <div class="card-block">
+                                    <form>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="form-group form-primary">
+                                                        <select name="ItemGroup" id="InvoiceNo" class="form-control">
+                                                            <option value="0">Select Invoice</option>
+                                                        </select>
+                                                        <label>Invoice No</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group form-primary">
+                                                        <input class="form-control fill" type="text" name="no" id="no" placeholder="No" />
+                                                        <label>NO</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group form-primary">
+                                                        <input class="form-control fill" type="date" name="FromDate" id="FromDate" />
+                                                        <label>Invoice Date</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group form-primary">
+                                                        <select name="ItemGroup" id="InvoiceNo" class="form-control">
+                                                            <option value="0">Select Invoice</option>
+                                                        </select>
+                                                        <label>Tax Invoice</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group form-primary">
+                                                        <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Customer Name" />
+                                                        <label>Customer Name</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-primary">
+                                                        <textarea class="form-control fill" placeholder="Address">Address </textarea>
+                                                        <label>Address</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group form-primary">
+                                                        <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Refrence" />
+                                                        <label>Refrence</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group form-primary">
+                                                        <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Wt." />
+                                                        <label>Wt.</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group form-primary">
+                                                        <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="WorkDays" />
+                                                        <label>WorkDays</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group form-primary">
+                                                        <input class="form-control" type="datetime-local" />
+                                                        <label>Delivery</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group form-primary">
+                                                        <input class="form-control" type="datetime-local" />
+                                                        <label>Trial</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="dt-responsive table-responsive">
+                                                        <table id="tblItemMaster" class="table table-striped table-bordered nowrap">
+                                                            <thead>
+                                                                <tr style="text-align:left;">
+                                                                    <th>Sr.</th>
+                                                                    <th>BarCode</th>
+                                                                    <th>Item Name</th>
+                                                                    <th>Rate</th>
+                                                                    <th>Qty</th>
+                                                                    <th>Amt</th>
+                                                                    <th>Charges</th>
+                                                                    <th>Ready</th>
+                                                                    <th>Dlvrd</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td style="text-align:center">1</td>
+                                                                    <td style="text-align:center">9317</td>
+                                                                    <td style="text-align:center">17/11/2023</td>
+                                                                    <td style="text-align:left">DIPTANSHU JI</td>
+                                                                    <td style="text-align:center">6262718062</td>
+                                                                    <td style="text-align:center">25/11/2023</td>
+                                                                    <td style="text-align:right">4192</td>
+                                                                    <td style="text-align:right">0</td>
+                                                                    <td style="text-align:right">4192</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group form-primary">
+                                                        <input class="form-control" type="text" />
+                                                        <label>Iten Total</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group form-primary">
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <input class="form-control" type="text" placeholder="Pcs" />
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <input class="form-control" type="text" placeholder="Mtr" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <center>
+                                                            <label>GST</label>
+                                                        </center>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group form-primary">
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <input class="form-control" type="text" placeholder="Pcs" />
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <input class="form-control" type="text" placeholder="Mtr" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <center>
+                                                            <label>GST</label>
+                                                        </center>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group form-primary">
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <input class="form-control" type="text" />
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <input class="form-control" type="text" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <center>
+                                                            <label>Discount</label>
+                                                        </center>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group form-primary">
+                                                        <input class="form-control" type="text" />
+                                                        <label>Taxable Amt</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group form-primary">
+                                                        <input class="form-control" type="text" />
+                                                        <label>Adjust</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group form-primary">
+                                                        <input class="form-control" type="text" />
+                                                        <label>Bill Amt.</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group form-primary">
+                                                        <input class="form-control" type="text" />
+                                                        <label>Received</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group form-primary">
+                                                        <input class="form-control" type="text" />
+                                                        <label>Due Amt</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group form-primary">
+                                                        <input class="form-control" type="text" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 card-header " style="text-align: center; background-color: #b9b9b9; margin-bottom: 15px;">
+                                                    <h5>Advance / Receipt Details :</h5>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group form-primary">
+                                                        <input class="form-control" type="date" />
+                                                        <label>Date</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group form-primary">
+                                                        <input class="form-control" type="text" />
+                                                        <label>Amt</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group form-primary">
+                                                        <select name="" id="" class="form-control">
+                                                            <option value="0">Select</option>
+                                                        </select>
+                                                        <label>Pmt By</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group form-primary">
+                                                        <input class="form-control" type="text" />
+                                                        <label>Measurement By</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-xl-12">
+                                                    <div class="col-lg-6 col-xl-6">
+                                                        <ul class="nav nav-tabs md-tabs " role="tablist">
+                                                            <li class="nav-item">
+                                                                <a class="nav-link active" data-toggle="tab" href="#home7" role="tab">
+                                                                    Tailoring Item
+                                                                </a>
+                                                                <div class="slide"></div>
+                                                            </li>
+                                                            <li class="nav-item">
+                                                                <a class="nav-link" data-toggle="tab" href="#profile7" role="tab">
+                                                                    Sales Item
+                                                                </a>
+                                                                <div class="slide"></div>
+                                                            </li>
+                                                            <li class="nav-item">
+                                                                <a class="nav-link" data-toggle="tab" href="#messages7" role="tab">
+                                                                    Product / Ready Sales
+                                                                </a>
+                                                                <div class="slide"></div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="tab-content card-block">
+                                                        <div class="tab-pane active" id="home7" role="tabpanel">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group form-primary">
+                                                                        <select name="ItemGroup" id="InvoiceNo" class="form-control">
+                                                                            <option value="0">Select Invoice</option>
+                                                                        </select>
+                                                                        <label>Item Name</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <div class="form-group form-primary">
+                                                                        <input class="form-control" type="text" />
+                                                                        <label>Pcs</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group form-primary">
+                                                                        <input class="form-control" type="text" />
+                                                                        <label>Rate</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group form-primary">
+                                                                        <input class="form-control" type="text" />
+                                                                        <label>Amt</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="dt-responsive table-responsive">
+                                                                        <table id="tblItemMaster" class="table table-striped table-bordered nowrap">
+                                                                            <thead>
+                                                                                <tr style="text-align:left;">
+                                                                                    <th>Sr.</th>
+                                                                                    <th>Para. Name</th>
+                                                                                    <th>Measurement</th>
+                                                                                    <th>Note/Style</th>
+                                                                                    <th>Charges</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td style="text-align:center">1</td>
+                                                                                    <td style="text-align:left">DIPTANSHU JI</td>
+                                                                                    <td style="text-align:left">DIPTANSHU JI</td>
+                                                                                    <td style="text-align:right">0</td>
+                                                                                    <td style="text-align:right">4192</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group form-primary">
+                                                                        <textarea class="form-control fill" placeholder="Address">Remarks </textarea>                                                                        <label>Remark</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="checkbox-fade fade-in-primary" style="margin-top:10%">
+                                                                        <label>
+                                                                            <input type="checkbox" id="IsActive" name="IsActive" value="1" class="input-danger">
+                                                                            <span class="cr">
+                                                                                <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
+                                                                            </span>
+                                                                            <span>Is Active</span>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="checkbox-fade fade-in-primary" style="margin-top:10%">
+                                                                        <label>
+                                                                            <input type="checkbox" id="IsActive" name="IsActive" value="1" class="input-danger">
+                                                                            <span class="cr">
+                                                                                <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
+                                                                            </span>
+                                                                            <span>Print In Invoice</span>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-btn">
+                                                                            <span class="btn btn-default btn-file">
+                                                                                Browse… <input type="file" id="imgInp">
+                                                                            </span>
+                                                                        </span>
+                                                                        <input type="text" class="form-control" readonly>
+                                                                        <input type="hidden" id="hdnImage">
+                                                                    </div>
+                                                                    <img id='img-upload' />
+                                                                </div>
+                                                                <div class="card-block" style="float:right">
+                                                                    <button class="btn waves-effect waves-light btn-success btn-outline-success" id="SaveBtn">
+                                                                        <i class="icofont icofont-check-circled"></i>Add TO Oder
+                                                                    </button>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane" id="profile7" role="tabpanel">
+                                                            <div class="card-block">
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Item Code</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" class="form-control" placeholder="Enter item code">
+                                                                    </div>
+                                                                    <div class="col-sm-2">
+                                                                        <label style="color:green"> Stock</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Item Name</label>
+                                                                    <div class="col-sm-10">
+                                                                        <input type="text" class="form-control" placeholder="Enter item Name">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Item Details</label>
+                                                                    <div class="col-sm-10">
+                                                                        <textarea class="form-control"></textarea>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Qty</label>
+                                                                    <div class="col-sm-10">
+                                                                        <input type="number" class="form-control" placeholder="Enter qty">
+                                                                    </div>
+                                                                    <div class="col-sm-2">
+                                                                        <select name="select" class="form-control">
+                                                                            <option value="opt1">Select One Value Only</option>
+                                                                            <option value="opt2">Type 2</option>
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Qty</label>
+                                                                    <div class="col-sm-6">
+                                                                        <input type="number" class="form-control" placeholder="Enter qty">
+                                                                    </div>
+                                                                    <div class="col-sm-2">
+                                                                        <select name="select" class="form-control">
+                                                                            <option value="opt1">Select One Value Only</option>
+                                                                            <option value="opt2">Type 2</option>
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Rate</label>
+                                                                    <div class="col-sm-6">
+                                                                        <input type="number" class="form-control" placeholder="Enter rate">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Discount</label>
+                                                                    <div class="col-sm-3">
+                                                                        <input type="number" class="form-control" placeholder="Enter discount">
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <input type="number" class="form-control" placeholder="Enter discount">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Item Total</label>
+                                                                    <div class="col-sm-6">
+                                                                        <input type="number" class="form-control" placeholder="Enter item total">
+                                                                    </div>
+                                                                    <div class="col-sm-2">
+                                                                        <label class="col-sm-12 col-form-label" style="color:blue">TaxPer</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label"></label>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="checkbox-fade fade-in-primary" style="margin-top:10%">
+                                                                            <label>
+                                                                                <input type="checkbox" id="IsActive" name="IsActive" value="1" class="input-danger">
+                                                                                <span class="cr">
+                                                                                    <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
+                                                                                </span>
+                                                                                <span>Required on Invoice</span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-block" style="float:right">
+                                                                    <button class="btn waves-effect waves-light btn-success btn-outline-success" id="additem">
+                                                                        <i class="icofont icofont-plus-circle"></i>Add Item
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane" id="messages7" role="tabpanel">
+                                                            <div class="card-block">
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Item Code</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" class="form-control" placeholder="Enter item code">
+                                                                    </div>
+                                                                    <div class="col-sm-2">
+                                                                        <label style="color:green"> Stock</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Item Name</label>
+                                                                    <div class="col-sm-10">
+                                                                        <input type="text" class="form-control" placeholder="Enter item Name">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Item Details</label>
+                                                                    <div class="col-sm-10">
+                                                                        <textarea class="form-control"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Tailoring</label>
+                                                                    <div class="col-sm-6">
+                                                                        <select name="select" class="form-control">
+                                                                            <option value="opt1">Select One Value Only</option>
+                                                                            <option value="opt2">Type 2</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <label class="col-sm-1">PCS</label>
+                                                                    <div class="col-sm-2">
+                                                                        <input type="text" class="form-control" placeholder="Enter pcs">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Qty</label>
+                                                                    <div class="col-sm-7">
+                                                                        <input type="number" class="form-control" placeholder="Enter qty">
+                                                                    </div>
+                                                                    <div class="col-sm-2">
+                                                                        <select name="select" class="form-control">
+                                                                            <option value="opt1">Select One Value Only</option>
+                                                                            <option value="opt2">Type 2</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Qty</label>
+                                                                    <div class="col-sm-6">
+                                                                        <input type="number" class="form-control" placeholder="Enter qty">
+                                                                    </div>
+                                                                    <div class="col-sm-2">
+                                                                        <select name="select" class="form-control">
+                                                                            <option value="opt1">Select One Value Only</option>
+                                                                            <option value="opt2">Type 2</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Rate</label>
+                                                                    <div class="col-sm-6">
+                                                                        <input type="number" class="form-control" placeholder="Enter rate">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Discount</label>
+                                                                    <div class="col-sm-3">
+                                                                        <input type="number" class="form-control" placeholder="Enter discount">
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <input type="number" class="form-control" placeholder="Enter discount">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Item Total</label>
+                                                                    <div class="col-sm-6">
+                                                                        <input type="number" class="form-control" placeholder="Enter item total">
+                                                                    </div>
+                                                                    <div class="col-sm-2">
+                                                                        <label class="col-sm-12 col-form-label" style="color:blue">TaxPer</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label"></label>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="checkbox-fade fade-in-primary" style="margin-top:10%">
+                                                                            <label>
+                                                                                <input type="checkbox" id="IsActive" name="IsActive" value="1" class="input-danger">
+                                                                                <span class="cr">
+                                                                                    <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
+                                                                                </span>
+                                                                                <span>Required on Invoice</span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-block" style="float:right">
+                                                                    <button class="btn waves-effect waves-light btn-success btn-outline-success" id="additem">
+                                                                        <i class="icofont icofont-plus-circle"></i>Add Item
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+
+    <script type="text/javascript" src="~/Content/files/assets/pages/advance-elements/bootstrap-datetimepicker.min.js"></script>
+
+    <script>
+
+        ; (function ($) {
+            $(document).on('change', '.btn-file :file', function () {
+                var input = $(this),
+                    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+                input.trigger('fileselect', [label]);
+            });
+            $('.btn-file :file').on('fileselect', function (event, label) {
+                var input = $(this).parents('.input-group').find(':text'),
+                    log = label;
+                if (input.length) {
+                    input.val(log);
+                } else {
+                    if (log) alert(log);
+                }
+            });
+
+            function readURL(input) {
+                imgs = input.files[0];
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#img-upload').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $("#imgInp").change(function () {
+                readURL(this);
+            });
+
+        })(jQuery);
+
+    </script>
+    }

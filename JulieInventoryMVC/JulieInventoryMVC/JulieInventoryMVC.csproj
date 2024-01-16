@@ -153,6 +153,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EmployeeMasterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ItemWiseRateChartController.cs" />
     <Compile Include="Controllers\OrderInvoiceController.cs" />
     <Compile Include="Controllers\TailoringItemsController.cs" />
     <Compile Include="Controllers\UserMasterController.cs" />
@@ -1273,6 +1274,9 @@
     <Content Include="Views\EmployeeMaster\Create.cshtml" />
     <Content Include="Views\EmployeeMaster\Edit.cshtml" />
     <Content Include="Views\EmployeeMaster\Details.cshtml" />
+    <Content Include="Views\ItemWiseRateChart\Index.cshtml" />
+    <Content Include="Views\ItemWiseRateChart\Create.cshtml" />
+    <Content Include="Views\ItemWiseRateChart\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

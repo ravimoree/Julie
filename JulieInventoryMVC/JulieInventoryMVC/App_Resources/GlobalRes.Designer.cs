@@ -205,6 +205,15 @@ namespace JulieInventoryMVC.App_Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rate Chart List.
+        /// </summary>
+        public static string Rate_Chart_List {
+            get {
+                return ResourceManager.GetString("Rate Chart List", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         public static string Settings {
