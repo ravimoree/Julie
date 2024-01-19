@@ -208,3 +208,9 @@ F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC\obj\Release\Hi\JulieInventoryMV
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC\obj\Release\JulieInventoryMVC.csproj.CopyComplete
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC\obj\Release\JulieInventoryMVC.dll
 F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC\obj\Release\JulieInventoryMVC.pdb
+F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC\bin\NWebsec.Core.dll
+F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC\bin\NWebsec.dll
+F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC\bin\NWebsec.Mvc.dll
+F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC\bin\NWebsec.xml
+F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC\bin\NWebsec.Core.xml
+F:\New\Julie\JulieInventoryMVC\JulieInventoryMVC\bin\NWebsec.Mvc.xml

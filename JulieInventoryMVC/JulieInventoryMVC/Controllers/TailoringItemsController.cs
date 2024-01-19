@@ -15,8 +15,13 @@ namespace JulieInventoryMVC.Controllers
     [SessionExpire(true)]
     public class TailoringItemsController : Controller
     {
-        ITItemMasterServices _dc = new TItemMasterServices();
+        ITItemMasterServices tItemMasterServices = new TItemMasterServices();
 
+        //private readonly ITItemMasterServices tItemMasterServices;  
+        //public TailoringItemsController(ITItemMasterServices _tItemMasterServices) 
+        //{
+        //    _tItemMasterServices = tItemMasterServices;
+        //}
         public ActionResult Index(int? page)
         {
             if (Session["UserId"] != null)
@@ -24,7 +29,7 @@ namespace JulieInventoryMVC.Controllers
                 int pageSize = 10;
                 int pageNumber = (page ?? 1);
 
-                var dataList = _dc.GetTItemMaster();
+                var dataList = tItemMasterServices.GetTItemMaster();
 
                 var ItemMaster = dataList.ToPagedList(pageNumber, pageSize);
 
@@ -41,8 +46,8 @@ namespace JulieInventoryMVC.Controllers
             if (Session["UserId"] != null)
             {
                 var cid = Session["CId"].ToString();
-                ViewBag.GetMiscMaster = _dc.GetMiscMaster(Convert.ToInt32(cid));
-                ViewBag.GetItemGroupMaster = _dc.GetItemGroupMaster();
+                ViewBag.GetMiscMaster = tItemMasterServices.GetMiscMaster(Convert.ToInt32(cid));
+                ViewBag.GetItemGroupMaster = tItemMasterServices.GetItemGroupMaster();
 
                 return View();
             }
@@ -84,9 +89,9 @@ namespace JulieInventoryMVC.Controllers
 
             itemMaster.ItemMaster.Sys_Time = DateTime.Now;
             itemMaster.ItemMaster.CurrUsr = Request["UserName"];
-            var insert = _dc.AddItemMaster(itemMaster.ItemMaster);
-            var para = _dc.AddItemParameter(itemMaster.Parameters, insert);
-            var notes = _dc.AddItemNotesStyles(itemMaster.NotesStyles, insert);
+            var insert = tItemMasterServices.AddItemMaster(itemMaster.ItemMaster);
+            var para = tItemMasterServices.AddItemParameter(itemMaster.Parameters, insert);
+            var notes = tItemMasterServices.AddItemNotesStyles(itemMaster.NotesStyles, insert);
 
             return RedirectToAction("Index", "TailoringItems");
 
@@ -94,14 +99,14 @@ namespace JulieInventoryMVC.Controllers
 
         public ActionResult Delete(int id)
         {
-            var dataList = _dc.DeleteItemMaster(id);
+            var dataList = tItemMasterServices.DeleteItemMaster(id);
             return RedirectToAction("Index");
         }
         public ActionResult Details(int id)
         {
             if (Session["UserId"] != null)
             {
-                var result = _dc.GetItemMaster(id);
+                var result = tItemMasterServices.GetItemMaster(id);
                 return View(result);
             }
             else
@@ -113,7 +118,7 @@ namespace JulieInventoryMVC.Controllers
         {
             if (Session["UserId"] != null)
             {
-                var result = _dc.GetItemMaster(id);
+                var result = tItemMasterServices.GetItemMaster(id);
                 return View(result);
             }
             else
@@ -126,19 +131,19 @@ namespace JulieInventoryMVC.Controllers
         {
             data.ItemMaster.Sys_Time = DateTime.Now;
             data.ItemMaster.CurrUsr = Request["UserName"];
-            var insert = _dc.AddItemMaster(data.ItemMaster);
+            var insert = tItemMasterServices.AddItemMaster(data.ItemMaster);
             int par = data.Parameters.Where(x => x.ParaId == 0).Count();
             int not = data.NotesStyles.Where(x => x.ParaId == 0).Count();
             if (par != 0)
             {
-                _dc.AddItemParameter(data.Parameters.Where(x => x.ParaId == 0).ToList(), insert);
+                tItemMasterServices.AddItemParameter(data.Parameters.Where(x => x.ParaId == 0).ToList(), insert);
             }
             if (not != 0)
             {
-                _dc.AddItemNotesStyles(data.NotesStyles.Where(x => x.ParaId == 0).ToList(), insert);
+                tItemMasterServices.AddItemNotesStyles(data.NotesStyles.Where(x => x.ParaId == 0).ToList(), insert);
             }
-            var para = _dc.UpdateItemParameter(data.Parameters.Where(x => x.ParaId != 0).ToList());
-            var notes = _dc.UpdateItemNotesStyles(data.NotesStyles.Where(x => x.ParaId != 0).ToList());
+            var para = tItemMasterServices.UpdateItemParameter(data.Parameters.Where(x => x.ParaId != 0).ToList());
+            var notes = tItemMasterServices.UpdateItemNotesStyles(data.NotesStyles.Where(x => x.ParaId != 0).ToList());
             return RedirectToAction("Index", "TailoringItems");
         }
 

@@ -16,6 +16,7 @@
     input[type=number] {
         -moz-appearance: textfield;
     }
+
     .form-control {
         border-left: none !important;
         border-top: none !important;
@@ -87,23 +88,15 @@
                                     <form>
                                         <div class="form-group">
                                             <div class="row">
-                                                <div class="col-md-3">
-                                                    <div class="form-group form-primary">
-                                                        <select name="ItemGroup" id="InvoiceNo" class="form-control">
-                                                            <option value="0">Select Invoice</option>
-                                                        </select>
-                                                        <label>Invoice No</label>
-                                                    </div>
-                                                </div>
                                                 <div class="col-md-2">
                                                     <div class="form-group form-primary">
-                                                        <input class="form-control fill" type="text" name="no" id="no" placeholder="No" />
+                                                        <input class="form-control fill" type="text" name="InvoiceNo" id="InvoiceNo" placeholder="No" />
                                                         <label>NO</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="form-group form-primary">
-                                                        <input class="form-control fill" type="date" name="FromDate" id="FromDate" />
+                                                        <input class="form-control fill" type="date" name="InvoiceDate" id="InvoiceDate" />
                                                         <label>Invoice Date</label>
                                                     </div>
                                                 </div>
@@ -118,43 +111,43 @@
 
                                                 <div class="col-md-3">
                                                     <div class="form-group form-primary">
-                                                        <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Customer Name" />
+                                                        <input class="form-control fill" type="text" name="LedgerName" id="LedgerName" placeholder="Customer Name" />
                                                         <label>Customer Name</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group form-primary">
-                                                        <textarea class="form-control fill" placeholder="Address">Address </textarea>
+                                                        <textarea class="form-control fill" placeholder="Address" id="Address" name="Address">Address </textarea>
                                                         <label>Address</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="form-group form-primary">
-                                                        <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Refrence" />
+                                                        <input class="form-control fill" type="text" name="Reference" id="Reference" placeholder="Refrence" />
                                                         <label>Refrence</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="form-group form-primary">
-                                                        <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Wt." />
+                                                        <input class="form-control fill" type="text" name="Remark2" id="Remark2" placeholder="Wt." />
                                                         <label>Wt.</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="form-group form-primary">
-                                                        <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="WorkDays" />
+                                                        <input class="form-control fill" type="text" name="WorkDays" id="WorkDays" placeholder="WorkDays" />
                                                         <label>WorkDays</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="form-group form-primary">
-                                                        <input class="form-control" type="datetime-local" />
+                                                        <input class="form-control" type="datetime-local" id="DeliveryDate" name="DeliveryDate"/>
                                                         <label>Delivery</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="form-group form-primary">
-                                                        <input class="form-control" type="datetime-local" />
+                                                        <input class="form-control" type="datetime-local"  id="TrialDate" name="TrialDate"/>
                                                         <label>Trial</label>
                                                     </div>
                                                 </div>
@@ -193,8 +186,8 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="form-group form-primary">
-                                                        <input class="form-control" type="text" />
-                                                        <label>Iten Total</label>
+                                                        <input class="form-control" type="text" id="MaterialAmt" name="MaterialAmt"/>
+                                                        <label>Taxbble Amt</label>
                                                     </div>
                                                 </div>
 
@@ -220,10 +213,10 @@
                                                         <div class="col-md-12">
                                                             <div class="row">
                                                                 <div class="col-md-4">
-                                                                    <input class="form-control" type="text" placeholder="Pcs" />
+                                                                    <input class="form-control" type="text" placeholder="TaxPer" id="TaxPer" name="TaxPer" />
                                                                 </div>
                                                                 <div class="col-md-8">
-                                                                    <input class="form-control" type="text" placeholder="Mtr" />
+                                                                    <input class="form-control" type="text" placeholder="TaxAmt" id="TaxAmt" name="TaxAmt"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -237,10 +230,10 @@
                                                         <div class="col-md-12">
                                                             <div class="row">
                                                                 <div class="col-md-4">
-                                                                    <input class="form-control" type="text" />
+                                                                    <input class="form-control" type="text" placeholder="AddTaxPer" id="AddTaxPer" name="TaxPer"/>
                                                                 </div>
                                                                 <div class="col-md-8">
-                                                                    <input class="form-control" type="text" />
+                                                                    <input class="form-control" type="text"  placeholder="AddTaxAmt" id="AddTaxAmt" name="TaxAmt" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -640,14 +633,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="card-block" style="float:right">
-                                                    <button class="btn waves-effect waves-light btn-success btn-outline-success" id="SaveBtn">
-                                                        <i class="icofont icofont-check-circled"></i>Save
-                                                    </button>
-                                                    <button class="btn waves-effect waves-light btn-danger btn-outline-danger">
-                                                        <i class="icofont icofont-eye-alt"></i>Cancel
-                                                    </button>
                                                 </div>
 
                                             </div>

@@ -1,19 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace JulieInventoryMVC_Models.ItemMaster
 {
     public class ItemMasterVM
     {
-        public TItemMaster ItemMaster{ get; set; }
+        public TItemMaster ItemMaster { get; set; }
         public List<ItemParameter> Parameters { get; set; }
         public List<ItemNotesStyles> NotesStyles { get; set; }
-        
+
     }
     public class JsonItemMaster
     {

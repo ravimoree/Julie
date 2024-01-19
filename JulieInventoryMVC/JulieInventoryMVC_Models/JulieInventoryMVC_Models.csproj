@@ -83,6 +83,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InvoiceMaster\InvoiceDetail.cs" />
+    <Compile Include="InvoiceMaster\InvoiceMaster.cs" />
+    <Compile Include="InvoiceMaster\InvoiceStyleDetail.cs" />
+    <Compile Include="InvoiceMaster\InvoiceSubDetail.cs" />
+    <Compile Include="InvoiceMaster\TInvoiceMasterVM.cs" />
     <Compile Include="ItemMaster\ItemMasterVM.cs" />
     <Compile Include="ItemMaster\ItemNotesStyles.cs" />
     <Compile Include="ItemMaster\ItemParameter.cs" />

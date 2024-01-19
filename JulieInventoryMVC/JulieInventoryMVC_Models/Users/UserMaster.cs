@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JulieInventoryMVC_Models.Users
 {
@@ -25,7 +21,7 @@ namespace JulieInventoryMVC_Models.Users
         public bool IsDemo { get; set; }
         public int IsAdmin { get; set; }
 
-        public UserMaster() 
+        public UserMaster()
         {
             this.UserId = UserId;
             this.UserName = UserName;

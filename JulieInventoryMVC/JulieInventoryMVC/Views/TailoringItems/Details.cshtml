@@ -54,34 +54,6 @@
     </style>
 }
 <div class="pcoded-content">
-    <div class="page-header card">
-        <div class="row align-items-end">
-            <div class="col-lg-8">
-                <div class="page-header-title">
-                    <i class="feather icon-inbox bg-c-blue"></i>
-                    <div class="d-inline">
-                        <h5>Tailoring Items Master Details</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="page-header-breadcrumb">
-                    <ul class=" breadcrumb breadcrumb-title">
-                        <li class="breadcrumb-item">
-                            <a href="/Home/Index"><i class="feather icon-home"></i></a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a href="/TailoringItems/Index"> @GlobalRes.Details</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a href="#!">Tailoring Items Master Details</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="pcoded-inner-content">
         <div class="main-body">
             <div class="page-wrapper">
@@ -97,7 +69,7 @@
                                     <div class="mail-body">
                                         <div class="mail-body-content">
                                             <div class="form-group form-primary">
-                                                <input type="text" name="ProductName" id="ProductName" class="form-control" value="@Model.itemMasterJson.TItemName">
+                                                <input type="text" name="ProductName" id="ProductName" class="form-control" value="@Model.ItemMaster.TItemName">
                                                 <span class="form-bar"></span>
                                                 <label class="float-label">Product / Item Name</label>
                                             </div>
@@ -105,35 +77,35 @@
                                                 <div class="row">
                                                     <div class="col-md-3">
                                                         <div class="form-group form-primary">
-                                                            <input type="number" name="CustomerRate" id="CustomerRate" class="form-control" value="@Model.itemMasterJson.TItemRate">
+                                                            <input type="number" name="CustomerRate" id="CustomerRate" class="form-control" value="@Model.ItemMaster.TItemRate">
                                                             <span class="form-bar"></span>
                                                             <label class="float-label">Customer Rate</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group form-primary">
-                                                            <input type="number" name="Alter" id="Alter" class="form-control" value="@Model.itemMasterJson.AlterRate">
+                                                            <input type="number" name="Alter" id="Alter" class="form-control" value="@Model.ItemMaster.AlterRate">
                                                             <span class="form-bar"></span>
                                                             <label class="float-label">Alter</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="form-group form-primary">
-                                                            <input type="number" name="UnitHrs" id="UnitHrs" class="form-control" value="@Model.itemMasterJson.OnePieceStitchingHrs">
+                                                            <input type="number" name="UnitHrs" id="UnitHrs" class="form-control" value="@Model.ItemMaster.OnePieceStitchingHrs">
                                                             <span class="form-bar"></span>
                                                             <label class="float-label">Unit / Hrs</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="form-group form-primary">
-                                                            <input type="number" name="SrNo" id="SrNo" class="form-control" value="@Model.itemMasterJson.TItemCode">
+                                                            <input type="number" name="SrNo" id="SrNo" class="form-control" value="@Model.ItemMaster.TItemCode">
                                                             <span class="form-bar"></span>
                                                             <label class="float-label"> Sr. No.</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="form-group form-primary">
-                                                            <input type="number" name="Barcode" id="Barcode" class="form-control" value="@Model.itemMasterJson.BarCode">
+                                                            <input type="number" name="Barcode" id="Barcode" class="form-control" value="@Model.ItemMaster.BarCode">
                                                             <span class="form-bar"></span>
                                                             <label class="float-label">Barcode</label>
                                                         </div>
@@ -185,14 +157,14 @@
                                                             </div>
                                                             <div class="col-md-5">
                                                                 <div class="form-group form-primary">
-                                                                    <input type="number" name="GST" id="GST" class="form-control" value="@Model.itemMasterJson.TaxPer">
+                                                                    <input type="number" name="GST" id="GST" class="form-control" value="@Model.ItemMaster.TaxPer">
                                                                     <span class="form-bar"></span>
                                                                     <label class="float-label">GST %</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-5">
                                                                 <div class="form-group form-primary">
-                                                                    <input type="number" name="ItemGroup" id="ItemGroup" class="form-control" value="@Model.itemMasterJson.ItemGroupName">
+                                                                    <input type="number" name="ItemGroup" id="ItemGroup" class="form-control" value="@Model.ItemMaster.ItemGroupName">
                                                                     <span class="form-bar"></span>
                                                                     <label class="float-label">Item Group</label>
                                                                 </div>
@@ -200,7 +172,7 @@
                                                             <div class="col-md-5">
                                                                 <div class="checkbox-fade fade-in-primary" style="margin-top:10%">
                                                                     <label>
-                                                                        @if (Model.itemMasterJson.IsActive == true)
+                                                                        @if (Model.ItemMaster.IsActive == true)
                                                                         {
                                                                             <input type="checkbox" id="IsActive" name="IsActive" value="1" class="input-danger" checked="checked">
                                                                         }
@@ -223,56 +195,56 @@
                                                             <br>
                                                             <div class="col-md-5">
                                                                 <div class="form-group form-primary">
-                                                                    <input type="number" name="CuttingPcs" id="CuttingPcs" class="form-control" value="@Model.itemMasterJson.CuttingRate">
+                                                                    <input type="number" name="CuttingPcs" id="CuttingPcs" class="form-control" value="@Model.ItemMaster.CuttingRate">
                                                                     <span class="form-bar"></span>
                                                                     <label class="float-label">Cutting / Pcs</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-5">
                                                                 <div class="form-group form-primary">
-                                                                    <input type="number" name="SewingPcs" id="SewingPcs" class="form-control" value="@Model.itemMasterJson.SewingRate">
+                                                                    <input type="number" name="SewingPcs" id="SewingPcs" class="form-control" value="@Model.ItemMaster.SewingRate">
                                                                     <span class="form-bar"></span>
                                                                     <label class="float-label">Sewing / Pcs</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-5">
                                                                 <div class="form-group form-primary">
-                                                                    <input type="number" name="SewingR" id="SewingR" class="form-control" value="@Model.itemMasterJson.SewingRate_R">
+                                                                    <input type="number" name="SewingR" id="SewingR" class="form-control" value="@Model.ItemMaster.SewingRate_R">
                                                                     <span class="form-bar"></span>
                                                                     <label class="float-label">Sewing (R)</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-5">
                                                                 <div class="form-group form-primary">
-                                                                    <input type="number" name="Material" id="Material" class="form-control" value="@Model.itemMasterJson.MaterialRate">
+                                                                    <input type="number" name="Material" id="Material" class="form-control" value="@Model.ItemMaster.MaterialRate">
                                                                     <span class="form-bar"></span>
                                                                     <label class="float-label">Material</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-5">
                                                                 <div class="form-group form-primary">
-                                                                    <input type="number" name="SewingJW" id="SewingJW" class="form-control" value="@Model.itemMasterJson.SewingRate_Jw">
+                                                                    <input type="number" name="SewingJW" id="SewingJW" class="form-control" value="@Model.ItemMaster.SewingRate_Jw">
                                                                     <span class="form-bar"></span>
                                                                     <label class="float-label">Sewing JW</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-5">
                                                                 <div class="form-group form-primary">
-                                                                    <input type="number" name="AlterCharg" class="form-control" value="@Model.itemMasterJson.AlterCharge">
+                                                                    <input type="number" name="AlterCharg" class="form-control" value="@Model.ItemMaster.AlterCharge">
                                                                     <span class="form-bar"></span>
                                                                     <label class="float-label">Alter Charge.</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-5">
                                                                 <div class="form-group form-primary">
-                                                                    <input type="number" name="SewingJWR" id="SewingJWR" class="form-control" value="@Model.itemMasterJson.SewingRate_Jw_R">
+                                                                    <input type="number" name="SewingJWR" id="SewingJWR" class="form-control" value="@Model.ItemMaster.SewingRate_Jw_R">
                                                                     <span class="form-bar"></span>
                                                                     <label class="float-label">Sewing JW (R)</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-5">
                                                                 <div class="form-group form-primary">
-                                                                    <input type="number" name="AlterR" id="AlterR" class="form-control" value="@Model.itemMasterJson.AlterCharge_R">
+                                                                    <input type="number" name="AlterR" id="AlterR" class="form-control" value="@Model.ItemMaster.AlterCharge_R">
                                                                     <span class="form-bar"></span>
                                                                     <label class="float-label">Alter (R)</label>
                                                                 </div>
