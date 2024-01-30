@@ -29,15 +29,59 @@
         .table td, .table th {
             padding: 0px !important;
             margin: 5px !important;
-
         }
 
         .table td {
             padding: 5px !important;
             margin-bottom: 0 !important;
         }
+
         .table th {
-        text-align:center !important
+            text-align: center !important
+        }
+        .pagination {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+
+            .pagination li {
+                margin: 0 5px;
+            }
+
+            .pagination a {
+                display: block;
+                padding: 8px 12px;
+                text-decoration: none;
+                color: #333;
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+
+                .pagination a:hover {
+                    background-color: #ddd;
+                }
+
+            .pagination .PagedList-selPage {
+                font-weight: bold;
+                background-color: #337ab7;
+                color: #fff;
+            }
+
+        page-item.active .page-link {
+            background-color: #4099ff;
+            border-color: #4099ff;
+        }
+
+        .pagination-container {
+            float: right !important;
+        }
+
+        .pagination .active a {
+            background-color: #4099ff;
+            border-color: #4099ff;
+            color: white;
         }
     </style>
 </head>

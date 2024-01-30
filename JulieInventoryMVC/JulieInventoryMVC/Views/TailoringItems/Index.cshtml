@@ -12,51 +12,7 @@
 <link rel="stylesheet" type="text/css" href="~/Content/files/assets/pages/data-table/css/buttons.dataTables.min.css">
 <link rel="stylesheet" type="text/css" href="~/Content/files/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
 <link rel="stylesheet" type="text/css" href="~/Content/files/assets/icon/icofont/css/icofont.css">
-<style>
-    .pagination {
-        display: flex;
-        list-style: none;
-        padding: 0;
-    }
 
-    .pagination li {
-         margin: 0 5px;
-    }
-
-    .pagination a {
-        display: block;
-        padding: 8px 12px;
-        text-decoration: none;
-        color: #333;
-        background-color: #fff;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-    }
-
-    .pagination a:hover {
-        background-color: #ddd;
-    }
-
-    .pagination .PagedList-selPage {
-        font-weight: bold;
-        background-color: #337ab7;
-        color: #fff;
-    }
-
-    page-item.active .page-link {
-        background-color: #4099ff;
-        border-color: #4099ff;
-    }
-
-    .pagination-container {
-        float: right !important;
-    }
-    .pagination .active a {
-        background-color: #4099ff;
-        border-color: #4099ff;
-        color:white;
-    }
-</style>
 <div class="pcoded-content">
     <div class="pcoded-inner-content">
         <div class="main-body">
@@ -127,7 +83,6 @@
                                                         </td>
                                                         <td>
                                                             @Html.DisplayFor(modelItem => item.AlterRate)
-
                                                         </td>
                                                         <td>
                                                             @Html.DisplayFor(modelItem => item.SewingRate_R)

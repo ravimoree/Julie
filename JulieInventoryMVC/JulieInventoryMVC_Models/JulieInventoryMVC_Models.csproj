@@ -83,11 +83,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InvoiceMaster\InvoiceDetail.cs" />
-    <Compile Include="InvoiceMaster\InvoiceMaster.cs" />
-    <Compile Include="InvoiceMaster\InvoiceStyleDetail.cs" />
-    <Compile Include="InvoiceMaster\InvoiceSubDetail.cs" />
-    <Compile Include="InvoiceMaster\TInvoiceMasterVM.cs" />
+    <Compile Include="OrderInvoiceMaster\InvoiceDetail.cs" />
+    <Compile Include="OrderInvoiceMaster\InvoiceMaster.cs" />
+    <Compile Include="OrderInvoiceMaster\InvoiceStyleDetail.cs" />
+    <Compile Include="OrderInvoiceMaster\InvoiceSubDetail.cs" />
+    <Compile Include="OrderInvoiceMaster\ItemNameVM.cs" />
+    <Compile Include="OrderInvoiceMaster\MesurementVM.cs" />
+    <Compile Include="OrderInvoiceMaster\OrderInvoiceMaster.cs" />
+    <Compile Include="OrderInvoiceMaster\TInvoiceMasterVM.cs" />
     <Compile Include="ItemMaster\ItemMasterVM.cs" />
     <Compile Include="ItemMaster\ItemNotesStyles.cs" />
     <Compile Include="ItemMaster\ItemParameter.cs" />
@@ -103,5 +106,6 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

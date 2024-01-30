@@ -8,3 +8,5 @@
 /JulieInventoryMVC/JulieInventoryMVC_Models/bin/Release
 /JulieInventoryMVC/JulieInventoryMVC_Models/obj/Release
 /DB/julie31-12-2023.sql
+/JulieInventoryMVC/JulieInventoryMVC_Services/bin/Release
+/.gitignore

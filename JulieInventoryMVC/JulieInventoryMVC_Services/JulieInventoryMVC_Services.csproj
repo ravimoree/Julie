@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OrderInvoice\IOrderInvoiceServices.cs" />
+    <Compile Include="OrderInvoice\OrderInvoiceServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TItemMaster\ITItemMasterServices.cs" />
     <Compile Include="TItemMaster\TItemMasterServices.cs" />
