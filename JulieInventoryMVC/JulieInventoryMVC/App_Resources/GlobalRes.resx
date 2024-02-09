@@ -135,6 +135,9 @@
   <data name="Employee Create" xml:space="preserve">
     <value>Employee Create</value>
   </data>
+  <data name="Employee Edit" xml:space="preserve">
+    <value>Employee Edit</value>
+  </data>
   <data name="Entry" xml:space="preserve">
     <value>Entry</value>
   </data>

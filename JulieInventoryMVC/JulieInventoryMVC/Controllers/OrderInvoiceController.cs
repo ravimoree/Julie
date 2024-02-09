@@ -1,4 +1,5 @@
 ﻿using JulieInventoryMVC.App_Start;
+using JulieInventoryMVC_Models.OrderInvoice;
 using JulieInventoryMVC_Models.OrderInvoiceMaster;
 using JulieInventoryMVC_Services.OrderInvoice;
 using JulieInventoryMVC_Services.TItemMaster;
@@ -37,7 +38,7 @@ namespace JulieInventoryMVC.Controllers
         {
             ViewBag.Mesurement = db.GetMesurements(Convert.ToInt32(Session["CId"]));
             ViewBag.SalesMan = db.GetSalesMan(Convert.ToInt32(Session["CId"]));
-            ViewBag.InvoiceNo = db.GetinvoiceNO();
+            ViewBag.InvoiceNo = db.GetinvoiceNO(Convert.ToInt32(Session["CId"]));
             return View();
         }
         public ActionResult Detail()
@@ -56,8 +57,11 @@ namespace JulieInventoryMVC.Controllers
         }
         public JsonResult GetItemNameDetails(int leadId,int iid)
         {
-            var list = db.GetItemName(Convert.ToInt32(Session["CId"]), leadId).Where(x=>x.TItemId==iid);
-            return Json(list, JsonRequestBehavior.AllowGet);
+            ItemNameDetailsVM item= new ItemNameDetailsVM();
+
+            item.itemName = db.GetItemName(Convert.ToInt32(Session["CId"]), leadId).Where(x=>x.TItemId==iid).FirstOrDefault();
+            item.nameParamiters = db.GetItemNameParamiter(leadId);
+            return Json(item, JsonRequestBehavior.AllowGet);
         }
     }
 }

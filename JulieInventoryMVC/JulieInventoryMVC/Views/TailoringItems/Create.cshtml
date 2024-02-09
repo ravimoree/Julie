@@ -34,20 +34,20 @@
 
             thead, tbody tr {
                 display: table;
-                width: 100%;
+                width: calc( 100% - 1em );
                 table-layout: fixed;
             }
 
         thead {
             width: calc( 100% - 1em )
         }
-
         table {
             width: 400px;
+            border: 1px solid #dee2e6 !important;
         }
 
         .table td, .table th {
-            padding: 0.5rem !important;
+            padding: 1rem !important;
         }
 
 
@@ -75,6 +75,13 @@
         #img-upload {
             width: 100%;
         }
+
+        #img-upload {
+            width: 150px;
+            height: 160px;
+            position: absolute;
+            margin-top: -20px;
+        }
     </style>
 }
 <div class="pcoded-content">
@@ -84,7 +91,7 @@
                 <div class="page-body">
                     <div class="row">
                         @* <form class="form-material" id="myForm">*@
-                        <div class="col-sm-7" style="float:left;">
+                        <div class="col-sm-12" style="float:left;">
                             <div class="card">
                                 <div class="card-header">
                                     <div class="d-inline">
@@ -97,13 +104,15 @@
                                 <div class="col-lg-12 col-xl-12">
                                     <div class="mail-body">
                                         <div class="mail-body-content">
-                                            <div class="form-group form-primary">
-                                                <input type="text" name="ProductName" id="ProductName" class="form-control" required>
-                                                <span class="form-bar"></span>
-                                                <label class="float-label">Product / Item Name</label>
-                                            </div>
                                             <div class="form-group">
                                                 <div class="row">
+                                                    <div class="col-md-3">
+                                                        <div class="form-group form-primary">
+                                                            <input type="text" name="ProductName" id="ProductName" class="form-control" required>
+                                                            <span class="form-bar"></span>
+                                                            <label class="float-label">Product / Item Name</label>
+                                                        </div>
+                                                    </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group form-primary">
                                                             <input type="number" name="CustomerRate" id="CustomerRate" class="form-control" required>
@@ -111,7 +120,7 @@
                                                             <label class="float-label">Customer Rate</label>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-2">
                                                         <div class="form-group form-primary">
                                                             <input type="number" name="Alter" id="Alter" class="form-control" required>
                                                             <span class="form-bar"></span>
@@ -139,13 +148,122 @@
                                                             <label class="float-label">Barcode</label>
                                                         </div>
                                                     </div>
-
+                                                    <div class="col-md-2">
+                                                        <div class="form-group form-primary">
+                                                            <input type="number" name="GST" id="GST" class="form-control" required>
+                                                            <label class="float-label">GST %</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group form-primary">
+                                                            <select name="ItemGroup" id="ItemGroup" class="form-control">
+                                                                <option value="0">Select Item Group</option>
+                                                                @foreach (var item in ViewBag.GetItemGroupMaster)
+                                                                {
+                                                                    <option value="@item.ItemGroupId">@item.ItemGroupName</option>
+                                                                }
+                                                            </select>
+                                                            <label class="float-label">Item Group</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group form-primary">
+                                                            <select name="UOM" id="UOM" class="form-control">
+                                                                <option value="0">Select UOM</option>
+                                                                @foreach (var item in ViewBag.GetMiscMaster)
+                                                                {
+                                                                    <option value="@item.MiscId">@item.MiscName</option>
+                                                                }
+                                                            </select>
+                                                            <label class="float-label">UOM</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group form-primary">
+                                                            <input type="number" name="CuttingPcs" id="CuttingPcs" class="form-control" required>
+                                                            <span class="form-bar"></span>
+                                                            <label class="float-label">Cutting / Pcs</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group form-primary">
+                                                            <input type="number" name="SewingPcs" id="SewingPcs" class="form-control" required>
+                                                            <span class="form-bar"></span>
+                                                            <label class="float-label">Sewing / Pcs</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group form-primary">
+                                                            <input type="number" name="SewingR" id="SewingR" class="form-control" required>
+                                                            <span class="form-bar"></span>
+                                                            <label class="float-label">Sewing (R)</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group form-primary">
+                                                            <input type="number" name="Material" id="Material" class="form-control" required>
+                                                            <span class="form-bar"></span>
+                                                            <label class="float-label">Material</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group form-primary">
+                                                            <input type="number" name="SewingJW" id="SewingJW" class="form-control" required>
+                                                            <span class="form-bar"></span>
+                                                            <label class="float-label">Sewing JW</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group form-primary">
+                                                            <input type="number" name="AlterCharg" class="form-control" required>
+                                                            <span class="form-bar"></span>
+                                                            <label class="float-label">Alter Charge.</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group form-primary">
+                                                            <input type="number" name="SewingJWR" id="SewingJWR" class="form-control" required>
+                                                            <span class="form-bar"></span>
+                                                            <label class="float-label">Sewing JW (R)</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group form-primary">
+                                                            <input type="number" name="AlterR" id="AlterR" class="form-control" required>
+                                                            <span class="form-bar"></span>
+                                                            <label class="float-label">Alter (R)</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="checkbox-fade fade-in-primary" >
+                                                            <label>
+                                                                <input type="checkbox" id="IsActive" name="IsActive" value="1" class="input-danger">
+                                                                <span class="cr">
+                                                                    <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
+                                                                </span>
+                                                                <span>Is Active</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="input-group">
+                                                            <span class="input-group-btn">
+                                                                <span class="btn btn-default btn-file">
+                                                                    Browse… <input type="file" id="imgInp">
+                                                                </span>
+                                                            </span>
+                                                            <input type="text" class="form-control" readonly>
+                                                            <input type="hidden" id="hdnImage">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <img id='img-upload' />
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="row">
-
-                                                    <div class="col-lg-7" style="float:left">
+                                                    <div class="col-lg-6">
                                                         <div class="card-block">
                                                             <div class="dt-responsive table-responsive">
                                                                 <button id="addBtn" type="button" class="btn waves-effect waves-dark btn-primary btn-outline-primary" style="margin-bottom:5px">
@@ -155,142 +273,47 @@
                                                                 <table id="tblMeasurement" class="table table-striped table-bordered">
                                                                     <thead>
                                                                         <tr>
-                                                                            <th style="width:40px">Sr.</th>
-                                                                            <th style="width:100%">Measurement Parameters</th>
-                                                                            <th style="width:40%">Action</th>
+                                                                            <th>Sr.</th>
+                                                                            <th>Measurement Parameters</th>
+                                                                            <th>Action</th>
                                                                         </tr>
                                                                     </thead>
-                                                                    <tbody id="tMeasurement" style="width:96%">
+                                                                    <tbody id="tMeasurement">
                                                                     </tbody>
                                                                 </table>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-5" style="float:right">
-                                                        <div class="row">
-                                                            <div class="col-md-5">
-                                                                <div class="form-group form-primary">
-                                                                    <input type="number" name="CustomerRate" id="CustomerRate" class="form-control" required>
-                                                                    <label class="float-label">Customer Rate</label>
-                                                                </div>
+                                                    <div class="col-lg-6" >
+                                                        <div class="card-block">
+                                                            <div class="dt-responsive table-responsive">
+                                                                <button id="addNoteBtns" type="button" class="btn waves-effect waves-dark btn-primary btn-outline-primary" style="margin-bottom: 5px; float: right">
+                                                                    <i class="icofont icofont-plus-circle"></i>
+                                                                    Add
+                                                                </button>
+                                                                <table id="tblNotes" class="table table-striped table-bordered">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Sr.</th>
+                                                                            <th>Notes / Styles</th>
+                                                                            <th>Charge</th>
+                                                                            <th>Charge(W)</th>
+                                                                            <th>Charge(JW)</th>
+                                                                            <th>Action</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody id="tNotes" style="width:100%">
+                                                                    </tbody>
+                                                                </table>
                                                             </div>
-                                                            <div class="col-md-5">
-                                                                <div class="form-group form-primary">
-                                                                    <input type="number" name="GST" id="GST" class="form-control" required>
-                                                                    <label class="float-label">GST %</label>
-                                                                </div>
+                                                            <div class="card-block" style="float:right">
+                                                                <button class="btn waves-effect waves-light btn-success btn-outline-success" id="SaveBtn">
+                                                                    <i class="icofont icofont-check-circled"></i>Save
+                                                                </button>
+                                                                <button class="btn waves-effect waves-light btn-danger btn-outline-danger">
+                                                                    <i class="icofont icofont-eye-alt"></i>Cancel
+                                                                </button>
                                                             </div>
-                                                            <div class="col-md-12">
-                                                                <div class="form-group form-primary">
-                                                                    <select name="ItemGroup" id="ItemGroup" class="form-control">
-                                                                        <option value="0">Select Item Group</option>
-                                                                        @foreach (var item in ViewBag.GetItemGroupMaster)
-                                                                        {
-                                                                            <option value="@item.ItemGroupId">@item.ItemGroupName</option>
-                                                                        }
-                                                                    </select>
-                                                                    <label class="float-label">Item Group</label>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-md-5">
-                                                                <div class="form-group form-primary">
-                                                                    <select name="UOM" id="UOM" class="form-control">
-                                                                        <option value="0">Select UOM</option>
-                                                                        @foreach (var item in ViewBag.GetMiscMaster)
-                                                                        {
-                                                                            <option value="@item.MiscId">@item.MiscName</option>
-                                                                        }
-                                                                    </select>
-                                                                    <label class="float-label">UOM</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-5">
-                                                                <div class="checkbox-fade fade-in-primary" style="margin-top:10%">
-                                                                    <label>
-                                                                        <input type="checkbox" id="IsActive" name="IsActive" value="1" class="input-danger">
-                                                                        <span class="cr">
-                                                                            <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
-                                                                        </span>
-                                                                        <span>Is Active</span>
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-12">
-                                                                <div class="input-group">
-                                                                    <span class="input-group-btn">
-                                                                        <span class="btn btn-default btn-file">
-                                                                            Browse… <input type="file" id="imgInp">
-                                                                        </span>
-                                                                    </span>
-                                                                    <input type="text" class="form-control" readonly>
-                                                                    <input type="hidden" id="hdnImage">
-                                                                </div>
-                                                                <img id='img-upload' />
-                                                            </div>
-                                                            <br>
-                                                            <br>
-                                                            <div class="col-md-12 card-header " style="text-align: center; background-color: #b9b9b9; margin-bottom: 15px;">
-                                                                <h5>Worker Rates</h5>
-                                                            </div>
-
-                                                            <div class="col-md-5">
-                                                                <div class="form-group form-primary">
-                                                                    <input type="number" name="CuttingPcs" id="CuttingPcs" class="form-control" required>
-                                                                    <span class="form-bar"></span>
-                                                                    <label class="float-label">Cutting / Pcs</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-5">
-                                                                <div class="form-group form-primary">
-                                                                    <input type="number" name="SewingPcs" id="SewingPcs" class="form-control" required>
-                                                                    <span class="form-bar"></span>
-                                                                    <label class="float-label">Sewing / Pcs</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-5">
-                                                                <div class="form-group form-primary">
-                                                                    <input type="number" name="SewingR" id="SewingR" class="form-control" required>
-                                                                    <span class="form-bar"></span>
-                                                                    <label class="float-label">Sewing (R)</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-5">
-                                                                <div class="form-group form-primary">
-                                                                    <input type="number" name="Material" id="Material" class="form-control" required>
-                                                                    <span class="form-bar"></span>
-                                                                    <label class="float-label">Material</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-5">
-                                                                <div class="form-group form-primary">
-                                                                    <input type="number" name="SewingJW" id="SewingJW" class="form-control" required>
-                                                                    <span class="form-bar"></span>
-                                                                    <label class="float-label">Sewing JW</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-5">
-                                                                <div class="form-group form-primary">
-                                                                    <input type="number" name="AlterCharg" class="form-control" required>
-                                                                    <span class="form-bar"></span>
-                                                                    <label class="float-label">Alter Charge.</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-5">
-                                                                <div class="form-group form-primary">
-                                                                    <input type="number" name="SewingJWR" id="SewingJWR" class="form-control" required>
-                                                                    <span class="form-bar"></span>
-                                                                    <label class="float-label">Sewing JW (R)</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-5">
-                                                                <div class="form-group form-primary">
-                                                                    <input type="number" name="AlterR" id="AlterR" class="form-control" required>
-                                                                    <span class="form-bar"></span>
-                                                                    <label class="float-label">Alter (R)</label>
-                                                                </div>
-                                                            </div>
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -298,41 +321,6 @@
 
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-5" style="float:right;">
-                            <div class="card">
-                                <div class="card-block">
-                                    <div class="dt-responsive table-responsive">
-                                        <button id="addNoteBtns" type="button" class="btn waves-effect waves-dark btn-primary btn-outline-primary" style="margin-bottom:5px">
-                                            <i class="icofont icofont-plus-circle"></i>
-                                            Add
-                                        </button>
-                                        <table id="tblNotes" class="table table-striped table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th style="width:40px">Sr.</th>
-                                                    <th style="width:100%">Notes / Styles</th>
-                                                    <th style="width:60%">Charge</th>
-                                                    <th style="width:70%">Charge(W)</th>
-                                                    <th style="width:75%">Charge(JW)</th>
-                                                    <th style="width:40%">Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="tNotes" style="width:100%">
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="card-block" style="float:right">
-                                        <button class="btn waves-effect waves-light btn-success btn-outline-success" id="SaveBtn">
-                                            <i class="icofont icofont-check-circled"></i>Save
-                                        </button>
-                                        <button class="btn waves-effect waves-light btn-danger btn-outline-danger">
-                                            <i class="icofont icofont-eye-alt"></i>Cancel
-                                        </button>
-                                    </div>
-
                                 </div>
                             </div>
                         </div>
@@ -359,28 +347,28 @@
             let counts = 1;
             var imgs = "";
             $('#addNoteBtns').click(function () {
-                let dynamicRowHTML = `     <tr class="rowClass ">
-                                                                                        <td class="row-index text-center Field" style="width:40px">
-                                                                                             ${counts}
-                                                                                        </td>
-                                                                                        <td class="row-index text-center Field" style="width:100%">
-                                                                                             <input type="text" name="Notes${counts}"id="Notes${counts}" class="form-control" >
-                                                                                        </td>
-                                                                                        <td class="row-index text-center Field" style="width:60%">
-                                                                                             <input type="number" name="Charge${counts}"id="Charge${counts}" class="form-control" >
-                                                                                        </td>
-                                                                                        <td class="row-index text-center Field" style="width:70%">
-                                                                                             <input type="number" name="ChargeW${counts}"id="ChargeW${counts}" class="form-control" >
-                                                                                        </td>
-                                                                                        <td class="row-index text-center Field" style="width:75%">
-                                                                                             <input type="number" name="ChargeJW${counts}"id="ChargeJW${counts}" class="form-control" >
-                                                                                        </td>
-                                                                                        <td class="text-center"style="width:40%">
-                                                                                            <button class="btn btn-danger remove" type="button">
-                                                                                                <i class="fa fa-trash" aria-hidden="true"></i>
-                                                                                            </button>
-                                                                                        </td>
-                                                                                   </tr>`;
+                let dynamicRowHTML = `     <tr class="rowClass">
+                                                <td class="row-index text-center Field" >
+                                                     ${counts}
+                                                </td>
+                                                <td class="row-index text-center Field" >
+                                                     <input type="text" name="Notes${counts}"id="Notes${counts}" class="form-control" >
+                                                </td>
+                                                <td class="row-index text-center Field" >
+                                                     <input type="number" name="Charge${counts}"id="Charge${counts}" class="form-control" >
+                                                </td>
+                                                <td class="row-index text-center Field" >
+                                                     <input type="number" name="ChargeW${counts}"id="ChargeW${counts}" class="form-control" >
+                                                </td>
+                                                <td class="row-index text-center Field" >
+                                                     <input type="number" name="ChargeJW${counts}"id="ChargeJW${counts}" class="form-control" >
+                                                </td>
+                                                <td class="text-center">
+                                                    <button class="btn btn-danger remove" type="button">
+                                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                                    </button>
+                                                </td>
+                                           </tr>`;
                 $('#tNotes').append(dynamicRowHTML);
                 counts++;
             });
@@ -392,18 +380,18 @@
             let count = 1;
             $('#addBtn').click(function () {
                 let dynamicRowHTML = `  <tr class="rowClass"">
-                                                                                                             <td class="row-index text-center" style="width:40px">
-                                                                                                                  ${count}
-                                                                                                             </td>
-                                                                                                             <td class="row-index text-center Field" style="width:95%">
-                                                                                                                  <input type="text" name="Measurement" id="Measurement" class="form-control" >
-                                                                                                             </td>
-                                                                                                             <td class="text-center"style="width:32%">
-                                                                                                                 <button class="btn btn-danger remove"
-                                                                                                                     type="button"><i class="fa fa-trash" aria-hidden="true"></i>
-                                                                                                                 </button>
-                                                                                                             </td>
-                                                                                                         </tr>`;
+                                                                                                                         <td class="row-index text-center" >
+                                                                                                                              ${count}
+                                                                                                                         </td>
+                                                                                                                         <td class="row-index text-center Field" >
+                                                                                                                              <input type="text" name="Measurement" id="Measurement" class="form-control" >
+                                                                                                                         </td>
+                                                                                                                         <td class="text-center">
+                                                                                                                             <button class="btn btn-danger remove"
+                                                                                                                                 type="button"><i class="fa fa-trash" aria-hidden="true"></i>
+                                                                                                                             </button>
+                                                                                                                         </td>
+                                                                                                                     </tr>`;
                 $('#tMeasurement').append(dynamicRowHTML);
                 count++;
             });

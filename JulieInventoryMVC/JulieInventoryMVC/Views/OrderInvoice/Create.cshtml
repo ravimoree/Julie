@@ -386,7 +386,7 @@
                                                                 </div>
                                                                 <div class="col-md-12">
                                                                     <div class="dt-responsive table-responsive">
-                                                                        <table id="tblItemMaster" class="table table-striped table-bordered nowrap">
+                                                                        <table id="tblItemNameParamitter" class="table table-striped table-bordered nowrap">
                                                                             <thead>
                                                                                 <tr style="text-align:left;">
                                                                                     <th>Sr.</th>
@@ -397,13 +397,6 @@
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                                <tr>
-                                                                                    <td style="text-align:center">1</td>
-                                                                                    <td style="text-align:left">DIPTANSHU JI</td>
-                                                                                    <td style="text-align:left">DIPTANSHU JI</td>
-                                                                                    <td style="text-align:right">0</td>
-                                                                                    <td style="text-align:right">4192</td>
-                                                                                </tr>
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
@@ -589,18 +582,7 @@
                                                                         <input type="text" class="form-control" placeholder="Enter pcs">
                                                                     </div>
                                                                 </div>
-                                                                <div class="form-group row">
-                                                                    <label class="col-sm-2 col-form-label">Qty</label>
-                                                                    <div class="col-sm-7">
-                                                                        <input type="number" class="form-control" placeholder="Enter qty">
-                                                                    </div>
-                                                                    <div class="col-sm-2">
-                                                                        <select name="select" class="form-control">
-                                                                            <option value="opt1">Select One Value Only</option>
-                                                                            <option value="opt2">Type 2</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
+
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-2 col-form-label">Qty</label>
                                                                     <div class="col-sm-6">
@@ -736,11 +718,22 @@
                 data: { leadId: lid, iid: imid },
                 dataType: "json",
                 success: function (result) {
-                    $("#ItemQty").val(result[0].ProductionLimit);
-                    $("#TItemTotal").val(result[0].TItemRate * result[0].ProductionLimit);
-                    $("#SalesBillAmt").val(result[0].TItemRate * result[0].ProductionLimit);
-                    $("#SalesBillAmt").val(result[0].TItemRate * result[0].ProductionLimit);
-                    $("#Rate").val(result[0].TItemRate);
+                    $("#ItemQty").val(result.itemName.ProductionLimit);
+                    $("#TItemTotal").val(result.itemName.TItemRate * result.itemName.ProductionLimit);
+                    $("#SalesBillAmt").val(result.itemName.TItemRate * result.itemName.ProductionLimit);
+                    $("#SalesBillAmt").val(result.itemName.TItemRate * result.itemName.ProductionLimit);
+                    $("#Rate").val(result.itemName.TItemRate);
+                    let data = result.nameParamiters;
+                    $.each(data, function (i) {
+                        let dynamicRowHTML = `<tr> 
+                                                <td>`+ i + `</td>
+                                                <td>`+ data[i].ParaName +`</td>
+                                                <td>`+ data[i].ParaValue +`</td>
+                                                <td>`+ data[i].Notes +`</td>
+                                                <td>`+ data[i].Charges +`</td>
+                                              </tr>`;
+                    });
+                    $('#tblItemNameParamitter tboday').append(dynamicRowHTML);
                 }
             });
         }

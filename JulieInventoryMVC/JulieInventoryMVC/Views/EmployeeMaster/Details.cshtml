@@ -1,9 +1,8 @@
 ﻿@using JulieInventoryMVC.App_Resources;
 @{
     ViewBag.Title = "Details";
-}
-@{
-    ViewBag.Title = GlobalRes.Employee_Create;
+    string strBirthDate = Model.BirthDate != null ? Model.BirthDate.ToString("yyyy/MM/dd") : System.DateTime.Now.ToString();
+    string strAnniDate = Model.BirthDate != null ? Model.AnniDate.ToString("yyyy/MM/dd") : System.DateTime.Now.ToString();
 }
 <link rel="stylesheet" type="text/css" href="~/Content/files/assets/pages/advance-elements/css/bootstrap-datetimepicker.css">
 <link rel="stylesheet" type="text/css" href="~/Content/files/bower_components/bootstrap-daterangepicker/css/daterangepicker.css" />
@@ -35,234 +34,227 @@
                         <div class="col-sm-12" style="float:left;">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Employee Detail</h5>
+                                    <h5>@GlobalRes.Employee_Edit</h5>
                                 </div>
                                 <div class="card-block">
-                                    <form>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control fill" type="text" name="no" id="no" placeholder="Enter code" />
-                                                                <label>Code</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-primary">
-                                                                <select name="ItemGroup" id="InvoiceNo" class="form-control">
-                                                                    <option value="0">Select Gender</option>
-                                                                </select>
-                                                                <label>Gender</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Enter name" />
-                                                                <label>Name</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12">
-                                                            <div class="form-group form-primary">
-                                                                <select name="ItemGroup" id="InvoiceNo" class="form-control">
-                                                                    <option value="0">Select Group</option>
-                                                                </select>
-                                                                <label>A/c Group</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Enter address" />
-                                                                <label>Address 1</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Enter address" />
-                                                                <label>Address 2</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Enter mobile" />
-                                                                <label>Mob. No.</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Enter mobile" />
-                                                                <label>Mob. No.</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Enter Ph" />
-                                                                <label>Ph. Mo.</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Enter e-mail" />
-                                                                <label>E-mail</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Enter city" />
-                                                                <label>City</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control fill" type="number" name="Cname" id="Cname" placeholder="Enter Pincode" />
-                                                                <label>Pincode</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Enter State" />
-                                                                <label>State</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Enter gst no" />
-                                                                <label>GST NO.</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Enter country" />
-                                                                <label>Country</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-primary">
-                                                                <select name="ItemGroup" id="InvoiceNo" class="form-control">
-                                                                    <option value="0">Select Taxtion</option>
-                                                                </select>
-                                                                <label>Taxtion</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-primary">
-                                                                <select name="ItemGroup" id="InvoiceNo" class="form-control">
-                                                                    <option value="0">Select Salary type</option>
-                                                                </select>
-                                                                <label>Salary Type</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Enter pan no" />
-                                                                <label>Pan No.</label>
-                                                            </div>
-                                                        </div>
 
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control" type="date" />
-                                                                <label>Birth Date</label>
-                                                            </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control fill" type="text" name="LedgerCode" id="LedgerCode" placeholder="Enter code" value="@Model.LedgerCode" />
+                                                            <label>Code</label>
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control" type="date" />
-                                                                <label>Anni. Date</label>
-                                                            </div>
-                                                        </div>
-
                                                     </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="checkbox-fade fade-in-primary" style="margin-top:10%">
-                                                                <label>
-                                                                    <input type="checkbox" id="IsActive" name="IsActive" value="1" class="input-danger">
-                                                                    <span class="cr">
-                                                                        <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
-                                                                    </span>
-                                                                    <span>Is Active</span>
-                                                                </label>
-                                                            </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group form-primary">
+                                                            @Html.DropDownList("CustType", new SelectList(ViewBag.EmpGrade, "MiscId", "MiscName", Model.CustType), "-- Select Gender --", new { @class = "form-control" })
+                                                            <label>Gender</label>
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Enter opening balance" />
-                                                                <label>Opening Balance</label>
-                                                            </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control fill" type="text" name="LedgerName" id="LedgerName" placeholder="Enter name" value="@Model.LedgerName" />
+                                                            <label>Name</label>
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-primary">
-                                                                <select name="ItemGroup" id="InvoiceNo" class="form-control">
-                                                                    <option value="0">Select type</option>
-                                                                </select>
-                                                                <label>A/c Type</label>
-                                                            </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control fill" type="text" name="BeneficiaryName" id="BeneficiaryName" placeholder="Enter name" value="@Model.BeneficiaryName" />
+                                                            <label>Work Type</label>
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Enter account" />
-                                                                <label>Account</label>
-                                                            </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group form-primary">
+                                                            @Html.DropDownList("G_Id", new SelectList(ViewBag.GroupMasters, "G_Id", "G_Name", Model.G_Id), "-- Select Group --", new { @class = "form-control" })
+                                                            <label>A/c Group</label>
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Enter ifsc" />
-                                                                <label>IFSC</label>
-                                                            </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control fill" type="text" name="Address1" id="Address1" placeholder="Enter address" value="@Model.Address1" />
+                                                            <label>Address 1</label>
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Enter micr" />
-                                                                <label>MICR</label>
-                                                            </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control fill" type="text" name="Address2" id="Address2" placeholder="Enter address" value="@Model.Address2" />
+                                                            <label>Address 2</label>
                                                         </div>
-                                                        <div class="col-md-12">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Enter bank name" />
-                                                                <label>Bank Name</label>
-                                                            </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control fill" type="number" name="MobileNo" id="MobileNo" placeholder="Enter mobile" value="@Model.MobileNo" />
+                                                            <label>Mob. No.</label>
                                                         </div>
-                                                        <div class="col-md-12">
-                                                            <div class="form-group form-primary">
-                                                                <textarea class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Enter address"></textarea>
-                                                                <label>Bank Add.</label>
-                                                            </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control fill" type="number" name="MobileNo2" id="MobileNo2" placeholder="Enter mobile" value="@Model.MobileNo2" />
+                                                            <label>Mob. No.</label>
                                                         </div>
-                                                        <div class="col-md-12">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Enter a/c person" />
-                                                                <label>A/c Person</label>
-                                                            </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control fill" type="text" name="PhoneNo" id="PhoneNo" placeholder="Enter phone" value="@Model.PhoneNo" />
+                                                            <label>Ph. Mo.</label>
                                                         </div>
-                                                        <div class="col-md-12">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Enter a/c contact" />
-                                                                <label>A/c Contact</label>
-                                                            </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control fill" type="email" name="AcEmailId" id="AcEmailId" placeholder="Enter e-mail" value="@Model.AcEmailId" />
+                                                            <label>E-mail</label>
                                                         </div>
-                                                        <div class="col-md-12">
-                                                            <div class="form-group form-primary">
-                                                                <input class="form-control fill" type="text" name="Cname" id="Cname" placeholder="Enter a/c email" />
-                                                                <label>A/c Email</label>
-                                                            </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control fill" type="text" name="City" id="City" placeholder="Enter city" value="@Model.City" />
+                                                            <label>City</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control fill" type="number" name="PinCode" id="PinCode" placeholder="Enter Pincode" value="@Model.PinCode" />
+                                                            <label>Pincode</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control fill" type="text" name="State" id="State" placeholder="Enter State" value="@Model.State" />
+                                                            <label>State</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control fill" type="text" name="GSTNo" id="GSTNo" placeholder="Enter gst no" value="@Model.GSTNo" />
+                                                            <label>GST NO.</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control fill" type="text" name="Country" id="Country" placeholder="Enter country code" value="@Model.Country" />
+                                                            <label>Country</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group form-primary">
+                                                            <select name="Taxation" id="Taxation" class="form-control">
+                                                                <option value="0">Select Taxtion</option>
+                                                            </select>
+                                                            <label>Taxtion</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group form-primary">
+                                                            @Html.DropDownList("FaxNo", new SelectList(ViewBag.SalaryType, "MiscId", "MiscName"), "-- Select Gender --", new { @class = "form-control" })
+                                                            <label>Salary Type</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control fill" type="text" name="PANNo" id="PANNo" placeholder="Enter pan no" value="@Model.PANNo" />
+                                                            <label>Pan No.</label>
                                                         </div>
                                                     </div>
 
+                                                    <div class="col-md-6">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control" type="date" name="BirthDate" id="BirthDate" value="@strBirthDate" />
+                                                            <label>Birth Date</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control" type="date" name="AnniDate" id="AnniDate" value="@strAnniDate" />
+                                                            <label>Anni. Date</label>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="card-block" style="float:">
-
-                                                    <button class="btn waves-effect waves-light btn-danger btn-outline-danger">
-                                                        <i class="icofont icofont-eye-alt"></i>Cancel
-                                                    </button>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="checkbox-fade fade-in-primary" style="margin-top:10%">
+                                                            <label>
+                                                                <input type="checkbox" id="IsActive" name="IsActive" value="1" class="input-danger">
+                                                                <span class="cr">
+                                                                    <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
+                                                                </span>
+                                                                <span>Is Active</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control fill" type="text" name="OpBal" id="OpBal" placeholder="Enter opening balance" />
+                                                            <label>Opening Balance</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group form-primary">
+                                                            <select name="BankAcType" id="BankAcType" class="form-control">
+                                                                <option value="0">Select type</option>
+                                                            </select>
+                                                            <label>A/c Type</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control fill" type="text" name="BankAcNo" id="BankAcNo" placeholder="Enter account" value="@Model.BankAcNo" />
+                                                            <label>Account</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control fill" type="text" name="IFSCCode" id="IFSCCode" placeholder="Enter ifsc" value="@Model.IFSCCode" />
+                                                            <label>IFSC</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control fill" type="text" name="MICRCode" id="MICRCode" placeholder="Enter micr" value="@Model.MICRCode" />
+                                                            <label>MICR</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control fill" type="text" name="BankName" id="BankName" placeholder="Enter bank name" value="@Model.BankName" />
+                                                            <label>Bank Name</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group form-primary">
+                                                            <textarea class="form-control fill" type="text" name="BankAddress" id="BankAddress" placeholder="Enter address" value="@Model.BankAddress"></textarea>
+                                                            <label>Bank Add.</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control fill" type="text" name="AcContactPerson" id="AcContactPerson" placeholder="Enter a/c person" value="@Model.AcContactPerson" />
+                                                            <label>A/c Person</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control fill" type="text" name="AcContactNo" id="AcContactNo" placeholder="Enter a/c contact" value="@Model.AcContactNo" />
+                                                            <label>A/c Contact</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group form-primary">
+                                                            <input class="form-control fill" type="text" name="AcEmailId" id="AcEmailId" placeholder="Enter a/c email" value="@Model.AcEmailId" />
+                                                            <label>A/c Email</label>
+                                                        </div>
+                                                    </div>
                                                 </div>
-
+                                            </div>
+                                            <div class="card-block" style="float:right">
+                                                <a href="/EmployeeMaster/Index" class="btn waves-effect waves-light btn-danger btn-outline-danger"><i class="icofont icofont-eye-alt"></i> Back to List</a>
                                             </div>
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -271,10 +263,9 @@
             </div>
         </div>
     </div>
-
 </div>
-
 @section scripts{
 
     <script type="text/javascript" src="~/Content/files/assets/pages/advance-elements/bootstrap-datetimepicker.min.js"></script>
 
+}

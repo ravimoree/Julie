@@ -1,4 +1,6 @@
 ﻿@using JulieInventoryMVC.App_Resources;
+@model  PagedList.IPagedList<JulieInventoryMVC_Models.WorkerEmployee.WorkerItemWiseRate>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Item Wise Rate Chart";
 }
@@ -27,7 +29,6 @@
 <link rel="stylesheet" type="text/css" href="~/Content/files/assets/pages/data-table/css/buttons.dataTables.min.css">
 <link rel="stylesheet" type="text/css" href="~/Content/files/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
 <link rel="stylesheet" type="text/css" href="~/Content/files/assets/icon/icofont/css/icofont.css">
-
 
 <div class="pcoded-content">
     <div class="pcoded-inner-content">
@@ -61,97 +62,55 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td style="text-align:center">1</td>
-                                                    <td style="text-align:center">आशीष साहू (BNG)</td>
-                                                    <td style="text-align:center">
-                                                        कुर्ता
-                                                    </td>
-                                                    <td style="text-align:left">Alter</td>
-                                                    <td style="text-align:center">0</td>
-                                                    <td style="text-align:center">0</td>
-                                                    <td style="text-align:right">05/12/2023</td>
-                                                    <td style="text-align:right"> </td>
-                                                    <td>
-                                                        <a href="/ItemWiseRateChart/Edit" class="btn waves-effect waves-light btn-success" title="Edit"><i class="icofont icofont-ui-edit"></i></a>
-                                                        <a href="/ItemWiseRateChart/Details" class="btn waves-effect waves-light btn-info" title="info"><i class="icofont icofont-eye-alt"></i></a>
-                                                        <a href="#" class="btn waves-effect waves-light btn-danger" title="Delete" onclick="return confirm('Are you sure you want to delete this item?');"><i class="icofont icofont-ui-delete"></i></a>
-                                                    </td>
-
-                                                </tr>
-                                                @*@{
-                            int serialNumber = (Model.PageNumber - 1) * Model.PageSize + 1;
-                        }
-                        @foreach (var item in Model)
-                        {
-
-                            <tr>
-                                <td>
-                                    @serialNumber
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.TItemName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.TItemRate)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.CuttingRate)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.SewingRate)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.ItemType)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.TaxPer)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.AlterRate)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.AlterRate)
-
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.SewingRate_R)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.SewingRate_Jw)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.SewingRate_Jw_R)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.AlterCharge_R)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.OnePieceStitchingHrs)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.ItemGroupName)
-                                </td>
-                                <td>
-                                    <a href="/TailoringItems/Edit?id=@item.TItemId" class="btn waves-effect waves-light btn-success" title="Edit"><i class="icofont icofont-ui-edit"></i></a>
-                                    <a href="/TailoringItems/Details?id=@item.TItemId" class="btn waves-effect waves-light btn-info" title="info"><i class="icofont icofont-eye-alt"></i></a>
-                                    <a href="/TailoringItems/Delete?id=@item.TItemId" class="btn waves-effect waves-light btn-danger" title="Delete" onclick="return confirm('Are you sure you want to delete this item?');"><i class="icofont icofont-ui-delete"></i></a>
-                                </td>
-                            </tr>
-                            serialNumber = serialNumber + 1;
-                        }*@
+                                                @{
+                                                    int serialNumber = (Model.PageNumber - 1) * Model.PageSize + 1;
+                                                }
+                                                @foreach (var item in Model)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            @serialNumber
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.LedgerName)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.ItemGroupName)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.WorkName)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.PerAmt)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.EffectiveFrom)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Rate)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Remarks)
+                                                        </td>
+                                                        <td>
+                                                            <a href="/ItemWiseRateChart/Edit?id=@item.Id" class="btn waves-effect waves-light btn-success" title="Edit"><i class="icofont icofont-ui-edit"></i></a>
+                                                            <a href="/ItemWiseRateChart/Details?id=@item.Id" class="btn waves-effect waves-light btn-info" title="info"><i class="icofont icofont-eye-alt"></i></a>
+                                                            <a href="#" class="btn waves-effect waves-light btn-danger" title="Delete" onclick="return confirm('Are you sure you want to delete this item?');"><i class="icofont icofont-ui-delete"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    serialNumber = serialNumber + 1;
+                                                }
                                             </tbody>
                                         </table>
-                                        @*<div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-5">
-                        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
-                        of @Model.PageCount
-
-                    </div>
-                    <div class="col-xs-12 col-sm-12  col-md-7">
-                        @Html.PagedListPager(Model, page => Url.Action("Index", new { sortOrder = ViewBag.CurrentSort, page, currentFilter = ViewBag.CurrentFilter }))
-                    </div>
-                </div>*@
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-5">
+                                                Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+                                                of @Model.PageCount
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12  col-md-7">
+                                                @Html.PagedListPager(Model, page => Url.Action("Index", new { sortOrder = ViewBag.CurrentSort, page, currentFilter = ViewBag.CurrentFilter }))
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -161,5 +120,14 @@
             </div>
         </div>
     </div>
-
 </div>
+@section scripts{
+
+    <script src="~/Content/files/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/files/assets/pages/data-table/js/vfs_fonts.js"></script>
+    <script src="~/Content/files/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/Content/files/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Content/files/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Content/files/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/Content/files/assets/pages/data-table/js/data-table-custom.js"></script>
+}

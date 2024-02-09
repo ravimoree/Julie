@@ -54,6 +54,10 @@
     <Compile Include="TItemMaster\TItemMasterServices.cs" />
     <Compile Include="Users\IUserServices.cs" />
     <Compile Include="Users\UserServices.cs" />
+    <Compile Include="WorkerEmployee\IWorkerEmployeeServices.cs" />
+    <Compile Include="WorkerEmployee\WorkerEmployeeServices.cs" />
+    <Compile Include="WorkerItemRate\IWorkerItemWiseRateServices.cs" />
+    <Compile Include="WorkerItemRate\WorkerItemWiseRateServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JulieInventoryMVC_Helpers\JulieInventoryMVC_Helpers.csproj">
@@ -72,5 +76,6 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -115,6 +115,15 @@ namespace JulieInventoryMVC.App_Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Employee Edit.
+        /// </summary>
+        public static string Employee_Edit {
+            get {
+                return ResourceManager.GetString("Employee Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Entry.
         /// </summary>
         public static string Entry {

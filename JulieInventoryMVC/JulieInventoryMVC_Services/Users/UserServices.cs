@@ -1,7 +1,6 @@
 ﻿using JulieInventoryMVC_Helpers;
-using System.Collections.Generic;
-using System.Linq;
 using JulieInventoryMVC_Models.Users;
+using System.Collections.Generic;
 
 namespace JulieInventoryMVC_Services.Users
 {
@@ -27,7 +26,7 @@ namespace JulieInventoryMVC_Services.Users
             param.Add(new ParameterInfo() { ParameterName = "@IsDemo", ParameterValue = modal.IsDemo });
             param.Add(new ParameterInfo() { ParameterName = "@IsAdmin", ParameterValue = modal.IsAdmin });
             int data = SqlHelper.GetIntRecord<UserModels>("Sp_InsertUpdatetbluser", param);
-            return data!=0?1:0;
+            return data != 0 ? 1 : 0;
         }
 
         public UserMaster GetUser(string email)

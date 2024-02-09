@@ -5,6 +5,7 @@ using JulieInventoryMVC_Models.OrderInvoiceMaster;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 
 namespace JulieInventoryMVC_Services.OrderInvoice
 {
@@ -13,8 +14,9 @@ namespace JulieInventoryMVC_Services.OrderInvoice
         public List<OrderInvoiceMaster> GetInvoiceMasters(int cid, bool isActive)
         {
             List<OrderInvoiceMaster> dataList = new List<OrderInvoiceMaster>();
-            dataList = SqlHelper.ReturnList<OrderInvoiceMaster>("Sp_GetInvoiceMaster", null).ToList();
-            dataList = dataList.Where(x => x.CId == cid).ToList();
+            DynamicParameters param1 = new DynamicParameters();
+            param1.Add("@cid", cid);
+            dataList = SqlHelper.ReturnList<OrderInvoiceMaster>("Sp_GetInvoiceMaster", param1).ToList();
             return dataList;
         }
 
@@ -22,7 +24,7 @@ namespace JulieInventoryMVC_Services.OrderInvoice
         {
             List<MesurementVM> miscMasters = new List<MesurementVM>();
             DynamicParameters param1 = new DynamicParameters();
-            param1.Add("@CId", cid);
+            param1.Add("@cid", cid);
             miscMasters = SqlHelper.ReturnList<MesurementVM>("Sp_GetMasermentList", param1).ToList();
             return miscMasters;
         }
@@ -30,7 +32,7 @@ namespace JulieInventoryMVC_Services.OrderInvoice
         {
             List<MesurementVM> miscMasters = new List<MesurementVM>();
             DynamicParameters param1 = new DynamicParameters();
-            param1.Add("@CId", cid);
+            param1.Add("@cid", cid);
             miscMasters = SqlHelper.ReturnList<MesurementVM>("Sp_GetSaleManList", param1).ToList();
             return miscMasters;
         }
@@ -43,9 +45,19 @@ namespace JulieInventoryMVC_Services.OrderInvoice
             miscMasters = SqlHelper.ReturnList<ItemNameVM>("Sp_GetIteamName", param1).ToList();
             return miscMasters;
         }
-        public int GetinvoiceNO()
+        public List<IteamNameParamiter> GetItemNameParamiter(int leadId)
         {
-            var data= SqlHelper.ReturnList<OrderInvoiceMaster>("Sp_GetInvoiceMaster", null).ToList();
+            List<IteamNameParamiter> miscMasters = new List<IteamNameParamiter>();
+            DynamicParameters param1 = new DynamicParameters();
+            param1.Add("@id", leadId);
+            miscMasters = SqlHelper.ReturnList<IteamNameParamiter>("Sp_GetItemNameParamiter", param1).ToList();
+            return miscMasters;
+        }
+        public int GetinvoiceNO(int cid)
+        {
+            DynamicParameters param1 = new DynamicParameters();
+            param1.Add("@cid", cid);
+            var data= SqlHelper.ReturnList<OrderInvoiceMaster>("Sp_GetInvoiceMaster", param1).ToList();
             int invoce = data.Max(x => x.InvoiceNo);
             return invoce;
         }
